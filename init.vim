@@ -146,6 +146,7 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
 set gfn=IBM\ Plex\ Mono\ 14,:Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
 " colorscheme peaksea
 
@@ -253,9 +254,9 @@ if has("autocmd")
 endif
 
 noremap su :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-noremap se :set splitbelow<CR>:split<CR>
-noremap sn :set nosplitright<CR>:vsplit<CR>:set splitright<CR
-noremap si :set splitright<>CR>:vsplit<CR>
+noremap sd :set splitbelow<CR>:split<CR>
+noremap sl :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+noremap sr :set splitright<CR>:vsplit<CR>
 
 " 使用ctrl + 方向健调整当前窗口大小 
 noremap <C-up> :res +5<CR>
@@ -401,15 +402,15 @@ map<F5> <ESC> :call CompileRun() <CR>
 "######auto fcitx  ###########
 let g:input_toggle = 1
 function! Fcitx2en()
-    let s:input_status = system("fcitx-remote")
+    let s:input_status = system("fcitx5-remote")
     if s:input_status == 2
         let g:input_toggle = 1
-        let l:a = system("fcitx-remote -c")
+        let l:a = system("fcitx-remote5 -c")
     endif
 endfunction
 
 function! Fcitx2zh()
-    let s:input_status = system("fcitx-remote")
+    let s:input_status = system("fcitx5-remote")
     if s:input_status != 2 && g:input_toggle == 1
         let l:a = system("fcitx-remote -o")
         let g:input_toggle = 0
