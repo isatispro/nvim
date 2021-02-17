@@ -210,7 +210,7 @@ nnoremap ]b :bnext<cr>
 map <Leader>sa ggVG
 
 " Quickly close the current window
-" nnoremap <leader>q :q<CR>
+nnoremap <leader>q :q<CR>
 
 " Quickly save the current file
 " nnoremap <leader>w :w<CR>
@@ -400,22 +400,22 @@ endfunc
 map<F5> <ESC> :call CompileRun() <CR>
 
 "######auto fcitx  ###########
-let g:input_toggle = 1
-function! Fcitx2en()
-    let s:input_status = system("fcitx5-remote")
-    if s:input_status == 2
-        let g:input_toggle = 1
-        let l:a = system("fcitx-remote5 -c")
-    endif
-endfunction
-
-function! Fcitx2zh()
-    let s:input_status = system("fcitx5-remote")
-    if s:input_status != 2 && g:input_toggle == 1
-        let l:a = system("fcitx-remote -o")
-        let g:input_toggle = 0
-    endif
-endfunction
+" let g:input_toggle = 1
+" function! Fcitx2en()
+"     let s:input_status = system("fcitx5-remote")
+"     if s:input_status == 2
+"         let g:input_toggle = 1
+"         let l:a = system("fcitx-remote5 -c")
+"     endif
+" endfunction
+" 
+" function! Fcitx2zh()
+"     let s:input_status = system("fcitx5-remote")
+"     if s:input_status != 2 && g:input_toggle == 1
+"         let l:a = system("fcitx-remote -o")
+"         let g:input_toggle = 0
+"     endif
+" endfunction
 
 if has("cscope")
     set csprg=/usr/bin/cscope   " 制定cscope命令
@@ -463,8 +463,8 @@ nnoremap <leader>cp :cp<CR>
 
 set ttimeoutlen=150
 "退出插入模式
-autocmd InsertLeave * call Fcitx2en()
+" autocmd InsertLeave * call Fcitx2en()
 "进入插入模式
-autocmd InsertEnter * call Fcitx2zh()
+" autocmd InsertEnter * call Fcitx2zh()
 "##### auto fcitx end ######
 
