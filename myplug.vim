@@ -117,11 +117,17 @@ omap kc <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 " Useful commands
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 nmap tt :CocCommand explorer<CR>
 " coc-translator
@@ -495,6 +501,10 @@ nmap <leader>ms :<Plug>MarkdownPreviewStop <cr>
 nmap <leader>mt :<Plug>MarkdownPreviewToggle <cr>
 
 """""""""""""""""" vim instant config end   """"""""""""""""""""""""""
+
+"""""""""""""""""" vim tag highlight start """""""""""""""""""""""""""
+Plug 'vim-scripts/TagHighlight'
+"""""""""""""""""" vim tag highlight end   """""""""""""""""""""""""""
 
 call plug#end()
 """""""""""""""""""""""""""""""""""

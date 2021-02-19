@@ -460,6 +460,36 @@ nnoremap <F12> :cclose<CR>
 nnoremap <leader>cn :cn<CR>
 nnoremap <leader>cp :cp<CR>
 
+ "--------------------------------------------------------------------------------
+"  自动加载ctags: ctags -R
+if filereadable("tags")
+      set tags=tags
+endif
+
+
+"  自动保存 kernel 的ctags文件
+if isdirectory("kernel/") && isdirectory("mm/")
+	au BufWritePost *.c,*.h silent! !ctags -L tags.files&
+	au BufWritePost *.c,*.h silent! !cscope -bkq -i tags.files&
+endif
+
+
+"--------------------------------------------------------------------------------
+" global:建立数据库
+"--------------------------------------------------------------------------------
+if filereadable("GTAGS")
+	set cscopetag
+	set cscopeprg=gtags-cscope
+	cs add GTAGS
+	au BufWritePost *.c,*.cpp,*.h silent! !global -u &
+endif
+
+" MiniBufExp :  Ctrl + Tab 键可以在minibuf中选择，Ctrl+h,j,k,l或者方向键
+" 来选择窗口
+ "--------------------------------------------------------------------------------
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
 
 set ttimeoutlen=150
 "退出插入模式
@@ -468,3 +498,95 @@ set ttimeoutlen=150
 " autocmd InsertEnter * call Fcitx2zh()
 "##### auto fcitx end ######
 
+"""""新文件标题""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"添加新文件类型支持
+au BufNewFile,BufRead *.vue      setf vue
+"新建.c,.h,.sh,.java文件，自动插入文件头
+autocmd BufNewFile *.go,*.cc,*.cpp,*.[ch],*.sh,*.java,*.vue, exec ":call SetTitle()"
+""定义函数SetTitle，自动插入文件头
+func SetTitle()
+  "如果文件类型为.sh文件
+  if &filetype == 'sh'
+    call setline(1,"\#########################################################################")
+    call append(line("."), "\# File Name: ".expand("%"))
+    call append(line(".")+1, "\# Author: JayGuan")
+    call append(line(".")+2, "\# Mail:")
+    call append(line(".")+3, "\# Created Time: ".strftime("%c"))
+    call append(line(".")+4, "\#########################################################################")
+    call append(line(".")+5, "\#!/bin/bash")
+    call append(line(".")+6, "")
+  else
+    call setline(1,"\/*#########################################################################")
+    call append(line("."), "\# File Name: ".expand("%"))
+    call append(line(".")+1, "\# Author: JayGuan")
+    call append(line(".")+2, "\# mail:")
+    call append(line(".")+3, "\# Created Time: ".strftime("%c"))
+    call append(line(".")+4, "\#########################################################################*/")
+    call append(line(".")+5, "")
+  endif
+  if &filetype == 'cpp'
+    call append(line(".")+6, "#include<iostream>")
+    call append(line(".")+7, "using namespace std;")
+    call append(line(".")+8, "int main(int argc,char * argv[]) {")
+    call append(line(".")+9, "return 0;")
+    call append(line(".")+10, "}")
+    call append(line(".")+11, "")
+  endif
+  if &filetype == 'c'
+    call append(line(".")+6, "#include<stdio.h>")
+    call append(line(".")+7, "int main(int argc,char * argv[]) {")
+    call append(line(".")+8, "return 0;")
+    call append(line(".")+9, "}")
+    call append(line(".")+10, "")
+    call append(line(".")+11, "")
+  endif
+  if &filetype == 'go'
+    call append(line(".")+6, "package main")
+    call append(line(".")+7, "import (\"fmt\")")
+    call append(line(".")+8, "func main() {")
+    call append(line(".")+9, "}")
+    call append(line(".")+10, "")
+    call append(line(".")+11, "")
+  endif
+  if &filetype == 'vue'
+    call setline(1,"\<!-- ######################################################################### -->")
+    call setline(2,"\<!-- #Filename: ".expand("%")." -->")
+    call setline(3,"\<!-- #Author: JayGuan -->")
+    call setline(4,"\<!-- #Mail: -->")
+    call setline(5,"\<!-- #Createrd Time: ".strftime("%c")." -->")
+    call setline(6,"\<!-- ######################################################################### -->")
+
+    call append(line(".")+6, "<template>")
+    call append(line(".")+7, "<!-- Here Set Template -->")
+    call append(line(".")+8, "  <div id=\"app\">")
+    call append(line(".")+9, "  </div>")
+    call append(line(".")+10, "</template>")
+    call append(line(".")+11, "<script>")
+    call append(line(".")+12, "// Here Set javascript")
+    call append(line(".")+13, "export default {")
+    call append(line(".")+14, " name: ".expand("%"))
+    call append(line(".")+15, " data () {")
+    call append(line(".")+16, "   return {")
+    call append(line(".")+17, "   }")
+    call append(line(".")+18, " }")
+    call append(line(".")+19, "}")
+    call append(line(".")+20, "</script>")
+    call append(line(".")+21, "<style>")
+    call append(line(".")+22, "/* Here Set Style */")
+    call append(line(".")+23, "</style>")
+  endif
+  endfunc
+  "新建文件后，自动定位到文件末尾
+  autocmd BufNewFile * normal G
+
+  """"显示当前行所在的函数名字“”“
+
+  fun! ShowFuncName()
+    let lnum = line(".")
+    let col = col(".")
+    echohl ModeMsg
+    echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
+    echohl None
+    call search("\\%" . lnum . "l" . "\\%" . col . "c")
+  endfun
+  map f :call ShowFuncName() <CR>
