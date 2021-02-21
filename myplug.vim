@@ -46,6 +46,28 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': 'v0.0.79'}
 Plug 'wellle/tmux-complete.vim'
+Plug 'antoinemadec/coc-fzf'
+
+" add_list_source(name, description, command)
+" call coc_fzf#common#add_list_source('fzf-buffers', 'display open buffers', 'Buffers')
+
+" delete_list_source(name)
+" call coc_fzf#common#delete_list_source('fzf-buffers')
+" allow to scroll in the preview
+set mouse=a
+
+" mappings
+nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
+nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
+nnoremap <silent> <space>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
+nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
+nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
+nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " ===
 " === coc.nvim
@@ -75,8 +97,12 @@ let g:coc_global_extensions = [
 	\ 'coc-yaml',
 	\ 'coc-clangd',
 	\ 'coc-spell-checker',
+	\ 'coc-terminal',
 	\ 'coc-browser',
 	\ 'coc-yank']
+
+nmap <leader>tt <Plug>(coc-terminal-toggle)
+
 inoremap <silent><expr> <TAB>
 	\ pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
@@ -155,7 +181,7 @@ autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
 """""""""""""""""""""""""""""""""""
 " => 输入法
-Plug 'https://github.com/vim-scripts/fcitx.vim.git'
+" Plug 'https://github.com/vim-scripts/fcitx.vim.git'
 
 """""""""""""""""""""""""""""""""""
 " => theme 颜色主题 
@@ -248,11 +274,14 @@ Plug 'junegunn/vim-easy-align'
 """""""""""""""""""""""""""""""""""
 " => 符号对齐
 Plug 'vim-scripts/taglist.vim'
+"Plug 'preservim/tagbar'
+"nmap <leader>tl :TagbarToggle<cr> 
 nmap <leader>tl :TlistToggle<cr> 
 let Tlist_Ctags_Cmd = '/usr/bin/ctags' 
 let Tlist_Show_One_File = 1            "不同时显示多个文件的tag，只显示当前文件的
 let Tlist_Exit_OnlyWindow = 1          "如果taglist窗口是最后一个窗口，则退出vim
 let Tlist_Use_Right_Window = 0         "在右侧窗口中显示taglist窗口
+" let g:tagbar_left = 1
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
