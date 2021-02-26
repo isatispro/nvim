@@ -1,4 +1,3 @@
-
 let mapleader=","
 let g:mapleader = ','
 
@@ -6,6 +5,13 @@ if filereadable(expand("~/.config/nvim/myplug.vim")) " neovim
   source ~/.config/nvim/myplug.vim
 endif
 
+if filereadable(expand("~/.config/nvim/plugconfig.vim")) " neovim
+  source ~/.config/nvim/plugconfig.vim
+endif
+
+if filereadable(expand("~/.config/nvim/mapping.vim")) " neovim
+  source ~/.config/nvim/mapping.vim
+endif
 
 """""""""""""""""""""""""""""""""""
 " => config start
