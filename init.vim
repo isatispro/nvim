@@ -417,73 +417,73 @@ map<F5> <ESC> :call CompileRun() <CR>
 "     endif
 " endfunction
 
-if has("cscope")
-    set csprg=/usr/bin/cscope   " 制定cscope命令
-    set csto=0                  " ctags查找顺序，0表示先cscope数据库再标签文件，1表示先标签文件爱
-    set cst                     " 同时搜索tag文件和cscope数据库
-    set cscopequickfix=s-,c-,d-,i-,t-,e-  "使用QucikFix窗口来显示cscope查找结果
-    set nocsverb
-    if filereadable("cscope.out")  "如果当前目录下有cscope.out则加载进Vim
-        cs add cscope.out
-    elseif $CSCOPE_DB != ""       "否则只要环境变量不为空就添加制定的数据库到Vim
-        cs add $CSCOPE_DB
-    endif
-    set csverb
-endif
-
-"map <F4>:!cscope -Rbq<CR>:cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
-" 查找符号
-nmap <leader>cs :cs find s <C-R>=expand("<cword>")<CR><CR> :copen<CR><CR>
-" 查找定义
-nmap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
-" 查找被这个函数调用的函数
-nmap <leader>cd :cs find d <C-R>=expand("<cword>")<CR><CR> :copen<CR><CR>
-" 查找调用这个函数的函数
-nmap <leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
-" 查找这个字符串
-nmap <leader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
-" 查找这个egrep匹配模式
-nmap <leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
-" 查找这个文件
-nmap <leader>cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
-" 查找include这个文件的文件
-nmap <leader>ci :cs find i <C-R>=expand("<cfile>")<CR><CR> :copen<CR><CR>
-
-" 设定是否使用QuickFix来显示结果
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-
-" QuickFix open and close
-nnoremap <F11> :copen<CR>
-nnoremap <F12> :cclose<CR>
-
-" QucikFix next and prev
-nnoremap <leader>cn :cn<CR>
-nnoremap <leader>cp :cp<CR>
-
- "--------------------------------------------------------------------------------
-"  自动加载ctags: ctags -R
-if filereadable("tags")
-      set tags=tags
-endif
-
-
-"  自动保存 kernel 的ctags文件
-if isdirectory("kernel/") && isdirectory("mm/")
-	au BufWritePost *.c,*.h silent! !ctags -L tags.files&
-	au BufWritePost *.c,*.h silent! !cscope -bkq -i tags.files&
-endif
-
-
-"--------------------------------------------------------------------------------
-" global:建立数据库
-"--------------------------------------------------------------------------------
-if filereadable("GTAGS")
-	set cscopetag
-	set cscopeprg=gtags-cscope
-	cs add GTAGS
-	au BufWritePost *.c,*.cpp,*.h silent! !global -u &
-endif
-
+" if has("cscope")
+"     set csprg=/usr/bin/cscope   " 制定cscope命令
+"     set csto=0                  " ctags查找顺序，0表示先cscope数据库再标签文件，1表示先标签文件爱
+"     set cst                     " 同时搜索tag文件和cscope数据库
+"     set cscopequickfix=s-,c-,d-,i-,t-,e-  "使用QucikFix窗口来显示cscope查找结果
+"     set nocsverb
+"     if filereadable("cscope.out")  "如果当前目录下有cscope.out则加载进Vim
+"         cs add cscope.out
+"     elseif $CSCOPE_DB != ""       "否则只要环境变量不为空就添加制定的数据库到Vim
+"         cs add $CSCOPE_DB
+"     endif
+"     set csverb
+" endif
+" 
+" "map <F4>:!cscope -Rbq<CR>:cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
+" " 查找符号
+" nmap <leader>cs :cs find s <C-R>=expand("<cword>")<CR><CR> :copen<CR><CR>
+" " 查找定义
+" nmap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
+" " 查找被这个函数调用的函数
+" nmap <leader>cd :cs find d <C-R>=expand("<cword>")<CR><CR> :copen<CR><CR>
+" " 查找调用这个函数的函数
+" nmap <leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
+" " 查找这个字符串
+" nmap <leader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
+" " 查找这个egrep匹配模式
+" nmap <leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
+" " 查找这个文件
+" nmap <leader>cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+" " 查找include这个文件的文件
+" nmap <leader>ci :cs find i <C-R>=expand("<cfile>")<CR><CR> :copen<CR><CR>
+" 
+" " 设定是否使用QuickFix来显示结果
+" set cscopequickfix=s-,c-,d-,i-,t-,e-
+" 
+" " QuickFix open and close
+" nnoremap <F11> :copen<CR>
+" nnoremap <F12> :cclose<CR>
+" 
+" " QucikFix next and prev
+" nnoremap <leader>cn :cn<CR>
+" nnoremap <leader>cp :cp<CR>
+" 
+"  "--------------------------------------------------------------------------------
+" "  自动加载ctags: ctags -R
+" if filereadable("tags")
+"       set tags=tags
+" endif
+" 
+" 
+" "  自动保存 kernel 的ctags文件
+" if isdirectory("kernel/") && isdirectory("mm/")
+" 	au BufWritePost *.c,*.h silent! !ctags -L tags.files&
+" 	au BufWritePost *.c,*.h silent! !cscope -bkq -i tags.files&
+" endif
+" 
+" 
+" "--------------------------------------------------------------------------------
+" " global:建立数据库
+" "--------------------------------------------------------------------------------
+" if filereadable("GTAGS")
+" 	set cscopetag
+" 	set cscopeprg=gtags-cscope
+" 	cs add GTAGS
+" 	au BufWritePost *.c,*.cpp,*.h silent! !global -u &
+" endif
+" 
 " MiniBufExp :  Ctrl + Tab 键可以在minibuf中选择，Ctrl+h,j,k,l或者方向键
 " 来选择窗口
  "--------------------------------------------------------------------------------

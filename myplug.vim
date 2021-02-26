@@ -272,6 +272,27 @@ let g:airline_theme='dark'
 Plug 'junegunn/vim-easy-align'
 
 """""""""""""""""""""""""""""""""""
+" => 自动生成索引
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+Plug 'skywind3000/vim-preview'
+
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" config project root markers.
+let g:gutentags_project_root = ['.root']
+
+" generate datebases in my cache directory, prevent gtags files polluting my project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" change focus to quickfix window after search (optional).
+let g:gutentags_plus_switch = 1
+
+let g:gutentags_define_advanced_commands = 1
+
+
+"""""""""""""""""""""""""""""""""""
 " => 符号对齐
 Plug 'vim-scripts/taglist.vim'
 "Plug 'preservim/tagbar'
@@ -281,6 +302,7 @@ let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_Show_One_File = 1            "不同时显示多个文件的tag，只显示当前文件的
 let Tlist_Exit_OnlyWindow = 1          "如果taglist窗口是最后一个窗口，则退出vim
 let Tlist_Use_Right_Window = 0         "在右侧窗口中显示taglist窗口
+let Tlistupdate = 0         "在右侧窗口中显示taglist窗口
 " let g:tagbar_left = 1
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
