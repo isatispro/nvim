@@ -75,6 +75,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'vim-scripts/TagHighlight'
 """""""""""""""""" vim tag highlight end   """""""""""""""""""""""""""
 
+Plug 'glepnir/dashboard-nvim'
+
 call plug#end()
 """""""""""""""""""""""""""""""""""
 " => Plug end 

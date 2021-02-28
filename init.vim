@@ -1,10 +1,6 @@
 let mapleader=","
 let g:mapleader = ','
 
-if filereadable(expand("~/.config/nvim/myplug.vim")) " neovim
-  source ~/.config/nvim/myplug.vim
-endif
-
 if filereadable(expand("~/.config/nvim/plugconfig.vim")) " neovim
   source ~/.config/nvim/plugconfig.vim
 endif
@@ -16,6 +12,8 @@ endif
 """""""""""""""""""""""""""""""""""
 " => config start
 """"""""""""""""""""""""""""""""""
+
+let g:python3_host_prog = "python3"
 
 nmap <leader>w :w!<cr>
 

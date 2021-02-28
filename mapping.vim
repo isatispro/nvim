@@ -131,6 +131,14 @@ let g:Lf_CommandMap = {
 nmap <leader>mp :<Plug>MarkdownPreview <cr> 
 nmap <leader>ms :<Plug>MarkdownPreviewStop <cr>
 nmap <leader>mt :<Plug>MarkdownPreviewToggle <cr>
+
+
+""""""""""""""""""""""""""""""""""""
+" ==> dashboard
+nmap <Leader>ss :<C-u>SessionSave<CR>
+nmap <Leader>sl :<C-u>SessionLoad<CR>
+
+
 """"""""""""""""""""""""""""""""""""
 " => Plug Mapping Start
 """"""""""""""""""""""""""""""""""""
