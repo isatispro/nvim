@@ -50,11 +50,11 @@ Plug 'junegunn/vim-easy-align'
 " => 自动生成索引
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
-Plug 'skywind3000/vim-preview'
 
 """""""""""""""""""""""""""""""""""
 " => 符号对齐
 Plug 'vim-scripts/taglist.vim'
+Plug 'liuchengxu/vista.vim'
 "Plug 'preservim/tagbar'
 "nmap <leader>tl :TagbarToggle<cr> 
 

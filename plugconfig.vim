@@ -173,6 +173,18 @@ let g:airline_theme='dark'
 
 """""""""""""""""""""""""""""""""""
 " => 自动生成索引
+""""""""""""""""""""""""""" gutentags settings """"""""""""""""""""""""""""""
+" The path to store tags files, instead of in the project root.
+" let g:gutentags_project_root = ['.root']
+" let g:gutentags_modules = ['ctags', 'gtags_cscope']
+" let g:gutentags_cache_dir = stdpath('cache') . '/ctags'
+" let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+" let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+" let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+" let g:gutentags_ctags_exclude = ['*.md', '*.html', '*.json', '*.toml', '*.css', '*.js',]
+" let g:gutentags_plus_switch = 1
+" let g:gutentags_define_advanced_commands = 1
+
 " enable gtags module
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
 
@@ -187,6 +199,29 @@ let g:gutentags_plus_switch = 1
 
 let g:gutentags_define_advanced_commands = 1
 
+if has('patch-8.1.2292') == 0 && exists('*nvim_open_win') == 0
+	finish
+endif
+
+""""""""""""""""""""""""""" vista settings """"""""""""""""""""""""""""""""""
+let g:vista#renderer#icons = {
+      \ 'member': '',
+      \ }
+
+" Do not echo message on command line
+let g:vista_echo_cursor = 0
+" Stay in current window when vista window is opened
+let g:vista_stay_on_open = 0
+
+augroup vista_conf
+  autocmd!
+  " Double mouse click to go to a tag
+  autocmd FileType vista* nnoremap <buffer> <silent>
+        \ <2-LeftMouse> :<C-U>call vista#cursor#FoldOrJump()<CR>
+augroup END
+
+nnoremap <silent> <Space>t :<C-U>Vista!!<CR>
+"}}
 
 """""""""""""""""""""""""""""""""""
 " => 符号对齐

@@ -138,7 +138,18 @@ nmap <leader>mt :<Plug>MarkdownPreviewToggle <cr>
 nmap <Leader>ss :<C-u>SessionSave<CR>
 nmap <Leader>sl :<C-u>SessionLoad<CR>
 
-
+""""""""""""""""""""""""""""""""""""
+" ==> gutentags
+noremap <silent> <SPACE>gs :GscopeFind s <C-R><C-W><cr>
+noremap <silent> <SPACE>gg :GscopeFind g <C-R><C-W><cr>
+noremap <silent> <SPACE>gc :GscopeFind c <C-R><C-W><cr>
+noremap <silent> <SPACE>gt :GscopeFind t <C-R><C-W><cr>
+noremap <silent> <SPACE>ge :GscopeFind e <C-R><C-W><cr>
+noremap <silent> <SPACE>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> <SPACE>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> <SPACE>gd :GscopeFind d <C-R><C-W><cr>
+noremap <silent> <SPACE>ga :GscopeFind a <C-R><C-W><cr>
+noremap <silent> <SPACE>gz :GscopeFind z <C-R><C-W><cr>
 """"""""""""""""""""""""""""""""""""
 " => Plug Mapping Start
 """"""""""""""""""""""""""""""""""""
