@@ -39,5 +39,10 @@
     "javascript",
     "c",
     "c++"
-  ]
+  ],
+  "snippets.extends": {
+    "cpp": ["c"],
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  }
 }

@@ -19,6 +19,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': 'v0.0.79'}
 Plug 'wellle/tmux-complete.vim'
 Plug 'antoinemadec/coc-fzf'
+Plug 'honza/vim-snippets'
+
+" Autoformat
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+" Plug 'Chiel92/vim-autoformat'
 
 """""""""""""""""""""""""""""""""""
 " => 输入法
