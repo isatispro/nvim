@@ -55,8 +55,8 @@ Plug 'junegunn/vim-easy-align'
 
 """""""""""""""""""""""""""""""""""
 " => 自动生成索引
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
+" Plug 'ludovicchabant/vim-gutentags'
+" Plug 'skywind3000/gutentags_plus'
 
 """""""""""""""""""""""""""""""""""
 " => 符号对齐
@@ -67,7 +67,7 @@ Plug 'liuchengxu/vista.vim'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 " ===
 " === rnvimr
@@ -80,6 +80,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 
 """""""""""""""""" vim tag highlight start """""""""""""""""""""""""""
 Plug 'vim-scripts/TagHighlight'
+" C++ Highlighter
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['vim-plug', 'c', 'cpp'] }
 """""""""""""""""" vim tag highlight end   """""""""""""""""""""""""""
 
 Plug 'glepnir/dashboard-nvim'

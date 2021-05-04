@@ -2,8 +2,8 @@
 " => Plug Config start
 """"""""""""""""""""""""""""""""""""
 
-if filereadable(expand("~/.config/nvim/myplug.vim")) " neovim
-  source ~/.config/nvim/myplug.vim
+if filereadable(expand("~/.config/nvim/plugList.vim")) " neovim
+  source ~/.config/nvim/plugList.vim
 endif
 
 """"""""""""""""""""""""""""""""""""
@@ -62,6 +62,7 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 " === coc.nvim
 " ===
 let g:coc_global_extensions = [
+	\ 'coc-actions',
 	\ 'coc-css',
 	\ 'coc-diagnostic',
 	\ 'coc-explorer',
@@ -70,6 +71,7 @@ let g:coc_global_extensions = [
 	\ 'coc-html',
 	\ 'coc-json',
 	\ 'coc-lists',
+	\ 'coc-marketplace',
 	\ 'coc-prettier',
 	\ 'coc-pyright',
 	\ 'coc-python',
@@ -78,16 +80,15 @@ let g:coc_global_extensions = [
 	\ 'coc-stylelint',
 	\ 'coc-syntax',
 	\ 'coc-tasks',
+	\ 'coc-todolist',
 	\ 'coc-translator',
 	\ 'coc-tslint-plugin',
 	\ 'coc-tsserver',
-	\ 'coc-vetur',
 	\ 'coc-vimlsp',
+    \ 'coc-fzf-preview', 
+    \ 'coc-highlight',
+	\ 'coc-vetur',
 	\ 'coc-yaml',
-	\ 'coc-clangd',
-	\ 'coc-spell-checker',
-	\ 'coc-terminal',
-	\ 'coc-browser',
 	\ 'coc-yank']
 
 inoremap <silent><expr> <TAB>
@@ -234,22 +235,22 @@ let g:airline_theme='dark'
 " let g:gutentags_define_advanced_commands = 1
 
 " enable gtags module
-let g:gutentags_modules = ['ctags', 'gtags_cscope']
-
-" config project root markers.
-let g:gutentags_project_root = ['.root']
-
-" generate datebases in my cache directory, prevent gtags files polluting my project
-let g:gutentags_cache_dir = expand('~/.cache/tags')
-
-" change focus to quickfix window after search (optional).
-let g:gutentags_plus_switch = 1
-
-let g:gutentags_define_advanced_commands = 1
-
-if has('patch-8.1.2292') == 0 && exists('*nvim_open_win') == 0
-	finish
-endif
+" let g:gutentags_modules = ['ctags', 'gtags_cscope']
+" 
+" " config project root markers.
+" let g:gutentags_project_root = ['.root']
+" 
+" " generate datebases in my cache directory, prevent gtags files polluting my project
+" let g:gutentags_cache_dir = expand('~/.cache/tags')
+" 
+" " change focus to quickfix window after search (optional).
+" let g:gutentags_plus_switch = 1
+" 
+" let g:gutentags_define_advanced_commands = 1
+" 
+" if has('patch-8.1.2292') == 0 && exists('*nvim_open_win') == 0
+" 	finish
+" endif
 
 """"""""""""""""""""""""""" vista settings """"""""""""""""""""""""""""""""""
 let g:vista#renderer#icons = {
@@ -284,10 +285,13 @@ let Tlistupdate = 0         "在右侧窗口中显示taglist窗口
 " === FZF
 " ===
 set rtp+=/usr/local/opt/fzf
-set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
-set rtp+=/home/david/.linuxbrew/opt/fzf
+" set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
+" set rtp+=/home/isatis/.linuxbrew/opt/fzf
 
-let g:fzf_preview_window = 'right:60%'
+" let g:fzf_command_prefix = 'Fzf'
+" let g:fzf_preview_window = 'right:60%'
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
 let g:fzf_commits_log_options = '--graph --color=always --format="%c(auto)%h%d %s %c(black)%c(bold)%cr"'
 
 function! s:list_buffers()

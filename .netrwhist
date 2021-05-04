@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/isatis/.config/nvim'
 let g:netrw_dirhist_6='/home/isatis'
 let g:netrw_dirhist_5='/home/isatis/.config/nvim'
 let g:netrw_dirhist_4='/home/isatis'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_1='/run/media/isatis/bf2f542c-9c38-4b5e-81cc-e5ef24352f7a/ho
 let g:netrw_dirhist_0='/home/isatis/.config/nvim'
 let g:netrw_dirhist_9='/home/isatis/.vim_runtime/vimrcs'
 let g:netrw_dirhist_8='/home/isatis/.vim_runtime'
-let g:netrw_dirhist_7='/home/isatis/.vim_runtime/autoload'
