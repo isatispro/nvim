@@ -13,3 +13,7 @@ endif
 if filereadable(expand("~/.config/nvim/mapping.vim")) " neovim
   source ~/.config/nvim/mapping.vim
 endif
+
+if filereadable(expand("~/.config/nvim/config_markdown.vim")) " neovim
+  source ~/.config/nvim/config_markdown.vim
+endif
