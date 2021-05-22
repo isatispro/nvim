@@ -1,3 +1,7 @@
+if filereadable(expand("~/.config/nvim/plugList.vim")) " neovim
+  source ~/.config/nvim/plugList.vim
+endif
+
 if filereadable(expand("~/.config/nvim/plugconfig.vim")) " neovim
   source ~/.config/nvim/plugconfig.vim
 endif
@@ -16,4 +20,8 @@ endif
 
 if filereadable(expand("~/.config/nvim/config_markdown.vim")) " neovim
   source ~/.config/nvim/config_markdown.vim
+endif
+
+if filereadable(expand("~/.config/nvim/fileHeader.vim")) " neovim
+  source ~/.config/nvim/fileHeader.vim
 endif

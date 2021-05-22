@@ -35,7 +35,7 @@ set nu
 " set nowrap
 
 " 突出显示当前列
-" set cursorcolumn
+set cursorcolumn
 
 " 突出显示当前行
 set cursorline
@@ -73,6 +73,9 @@ set incsearch
 set ignorecase
 " 有一个或以上大写字母时仍大小写敏感
 set smartcase
+
+" 共享剪切版
+set clipboard=unnamed
 
 " 代码折叠
 set foldenable
@@ -340,24 +343,6 @@ let vim_markdown_folding_disabled = 1
 """"""""""""""""""""""""""""""
 " => c/c++
 """"""""""""""""""""""""""""""
-autocmd BufNeWFile *.[ch],*.cpp exec ":call CFileHeader()"
-func CFileHeader()
-        call setline(1, "// File:    ".strftime(expand('%d')))
-        call append(line("."), "// Author:  xianhui (definezxh@163.com)")
-        call append(line(".")+1, "// Date:    " .strftime("%Y/%m/%d %H:%M:%S"))
-        call append(line(".")+2, "")
-        exec "$"
-endfunc
-
-autocmd BufEnter *.[ch],*.cpp exec ":call CFileIndent()"
-func CFileIndent()
-        set cindent
-        set tabstop=4
-        set softtabstop=4
-        set expandtab
-        set shiftwidth=4
-endfunc
-
 func CodeFormat()
         exec "w"
         if &filetype == "h"
@@ -495,95 +480,13 @@ set ttimeoutlen=150
 " autocmd InsertEnter * call Fcitx2zh()
 "##### auto fcitx end ######
 
-"""""新文件标题""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"添加新文件类型支持
-au BufNewFile,BufRead *.vue      setf vue
-"新建.c,.h,.sh,.java文件，自动插入文件头
-autocmd BufNewFile *.go,*.cc,*.cpp,*.[ch],*.sh,*.java,*.vue, exec ":call SetTitle()"
-""定义函数SetTitle，自动插入文件头
-func SetTitle()
-  "如果文件类型为.sh文件
-  if &filetype == 'sh'
-    call setline(1,"\#########################################################################")
-    call append(line("."), "\# File Name: ".expand("%"))
-    call append(line(".")+1, "\# Author: JayGuan")
-    call append(line(".")+2, "\# Mail:")
-    call append(line(".")+3, "\# Created Time: ".strftime("%c"))
-    call append(line(".")+4, "\#########################################################################")
-    call append(line(".")+5, "\#!/bin/bash")
-    call append(line(".")+6, "")
-  else
-    call setline(1,"\/*#########################################################################")
-    call append(line("."), "\# File Name: ".expand("%"))
-    call append(line(".")+1, "\# Author: JayGuan")
-    call append(line(".")+2, "\# mail:")
-    call append(line(".")+3, "\# Created Time: ".strftime("%c"))
-    call append(line(".")+4, "\#########################################################################*/")
-    call append(line(".")+5, "")
-  endif
-  if &filetype == 'cpp'
-    call append(line(".")+6, "#include<iostream>")
-    call append(line(".")+7, "using namespace std;")
-    call append(line(".")+8, "int main(int argc,char * argv[]) {")
-    call append(line(".")+9, "return 0;")
-    call append(line(".")+10, "}")
-    call append(line(".")+11, "")
-  endif
-  if &filetype == 'c'
-    call append(line(".")+6, "#include<stdio.h>")
-    call append(line(".")+7, "int main(int argc,char * argv[]) {")
-    call append(line(".")+8, "return 0;")
-    call append(line(".")+9, "}")
-    call append(line(".")+10, "")
-    call append(line(".")+11, "")
-  endif
-  if &filetype == 'go'
-    call append(line(".")+6, "package main")
-    call append(line(".")+7, "import (\"fmt\")")
-    call append(line(".")+8, "func main() {")
-    call append(line(".")+9, "}")
-    call append(line(".")+10, "")
-    call append(line(".")+11, "")
-  endif
-  if &filetype == 'vue'
-    call setline(1,"\<!-- ######################################################################### -->")
-    call setline(2,"\<!-- #Filename: ".expand("%")." -->")
-    call setline(3,"\<!-- #Author: JayGuan -->")
-    call setline(4,"\<!-- #Mail: -->")
-    call setline(5,"\<!-- #Createrd Time: ".strftime("%c")." -->")
-    call setline(6,"\<!-- ######################################################################### -->")
+fun! ShowFuncName()
+  let lnum = line(".")
+  let col = col(".")
+  echohl ModeMsg
+  echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
+  echohl None
+  call search("\\%" . lnum . "l" . "\\%" . col . "c")
+endfun
 
-    call append(line(".")+6, "<template>")
-    call append(line(".")+7, "<!-- Here Set Template -->")
-    call append(line(".")+8, "  <div id=\"app\">")
-    call append(line(".")+9, "  </div>")
-    call append(line(".")+10, "</template>")
-    call append(line(".")+11, "<script>")
-    call append(line(".")+12, "// Here Set javascript")
-    call append(line(".")+13, "export default {")
-    call append(line(".")+14, " name: ".expand("%"))
-    call append(line(".")+15, " data () {")
-    call append(line(".")+16, "   return {")
-    call append(line(".")+17, "   }")
-    call append(line(".")+18, " }")
-    call append(line(".")+19, "}")
-    call append(line(".")+20, "</script>")
-    call append(line(".")+21, "<style>")
-    call append(line(".")+22, "/* Here Set Style */")
-    call append(line(".")+23, "</style>")
-  endif
-  endfunc
-  "新建文件后，自动定位到文件末尾
-  autocmd BufNewFile * normal G
-
-  """"显示当前行所在的函数名字“”“
-
-  fun! ShowFuncName()
-    let lnum = line(".")
-    let col = col(".")
-    echohl ModeMsg
-    echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
-    echohl None
-    call search("\\%" . lnum . "l" . "\\%" . col . "c")
-  endfun
-  map f :call ShowFuncName() <CR>
+map f :call ShowFuncName() <CR>
