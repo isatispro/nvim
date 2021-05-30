@@ -379,7 +379,7 @@ func CompileRun()
         endif
         exec "! ./a.out"
 endfunc
-map<F5> <ESC> :call CompileRun() <CR>
+map <space>r :call CompileRun() <CR>
 
 "######auto fcitx  ###########
 " let g:input_toggle = 1
