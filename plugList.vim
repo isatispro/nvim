@@ -14,6 +14,10 @@ Plug 'preservim/nerdtree'
 " 快速注释
 Plug 'scrooloose/nerdcommenter'
 
+" rust
+" rust 官方插件
+Plug 'rust-lang/rust.vim'
+
 " auto Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': 'v0.0.79'}

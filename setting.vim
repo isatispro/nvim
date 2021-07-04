@@ -324,9 +324,9 @@ au FileType gitcommit call setpos('.', [0, 1, 1, 0])
 """"""""""""""""""""""""""""""
 if exists('$TMUX') 
     if has('nvim')
-        set termguicolors
+        set TERM=guicolors
     else
-        set term=screen-256color 
+        set TERM=screen-256color 
     endif
 endif
 
@@ -359,9 +359,7 @@ map <C-F> :call CodeFormat() <CR>
 func CompileC()
         exec "w"
         let compilecmd = "!clang "
-        if search("math\.h") != 0
-                let compileflag .= "-lm"
-        endif
+        let compileflag = ""
         exec compilecmd." % ".compileflag
 endfunc
 func CompileCpp()
@@ -370,12 +368,21 @@ func CompileCpp()
         let compileflag = ""
         exec compilecmd." % ".compileflag
 endfunc
+func CompileRS()
+        exec "w"
+        let compilecmd = "!cargo "
+        let compileflag = "run"
+        exec compilecmd.compileflag
+endfunc
 func CompileRun()
         exec "w"
         if &filetype == "c"
                 exec "call CompileC()"
         elseif &filetype == "cpp"
                 exec "call CompileCpp()"
+        elseif &filetype == "rust"
+                exec "call CompileRS()"
+                return
         endif
         exec "! ./a.out"
 endfunc
