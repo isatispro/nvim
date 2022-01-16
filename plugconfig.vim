@@ -114,6 +114,7 @@ function! Show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
+
 " set runtimepath^=~/.config/nvim/coc-extensions/coc-flutter-tools/
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
 " let $NVIM_COC_LOG_LEVEL = 'debug'

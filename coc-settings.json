@@ -87,7 +87,7 @@
 	"explorer.file.showHiddenFiles": true,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.file.column.git.showIgnored": true,
-	"explorer.keyMappingMode": "none",
+	"explorer.keyMappingMode": "default",
 	"explorer.buffer.showHiddenBuffers": false,
 	"explorer.keyMappings": {
 		"u": "nodePrev",
