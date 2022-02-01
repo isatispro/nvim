@@ -72,6 +72,7 @@
 	"typescript.suggestionActions.enabled": true,
 	"typescript.format.enabled": true,
 	"explorer.width": 38,
+	"explorer.position": "right",
 	"explorer.quitOnOpen": true,
 	"explorer.sources": [
 		{
@@ -87,7 +88,7 @@
 	"explorer.file.showHiddenFiles": true,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.file.column.git.showIgnored": true,
-	"explorer.keyMappingMode": "default",
+	"explorer.keyMappingMode": "none",
 	"explorer.buffer.showHiddenBuffers": false,
 	"explorer.keyMappings": {
 		"u": "nodePrev",
@@ -144,7 +145,7 @@
 	"python.formatting.provider": "yapf",
 	"python.formatting.yapfArgs": [
 		"--style",
-		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
+		"{SPACES_AROUND_POWER_OPERATOR: True, SACES_BEFORE_COMMENT: 1}"
 	],
 	"html.format.enable": true,
 	"javascript.referencesCodeLens.enable": true,

@@ -324,7 +324,7 @@ au FileType gitcommit call setpos('.', [0, 1, 1, 0])
 """"""""""""""""""""""""""""""
 if exists('$TMUX') 
     if has('nvim')
-        set TERM=guicolors
+        " set TERM=gui-256color
     else
         set TERM=screen-256color 
     endif
@@ -406,6 +406,17 @@ map <space>r :call CompileRun() <CR>
 "     endif
 " endfunction
 
+function! AppendCtagsForC(file_path)
+  let saved_path = getcwd()
+  exe 'lcd ' . a:root_path
+  exe 'silent !ctags --languages=c --langmap=c:.c.h --fields=+S -a '
+        \. a:file_path
+  exe 'lcd ' . saved_path
+endfunction
+
+au BufWritePost /project/path/*  call
+      \ AppendCtagsForC('/project/path/', expand('%'))
+
 if has("cscope")
     set csprg=/usr/bin/cscope   " 制定cscope命令
     set csto=0                  " ctags查找顺序，0表示先cscope数据库再标签文件，1表示先标签文件爱
@@ -419,6 +430,8 @@ if has("cscope")
     endif
     set csverb
 endif
+
+autocmd FileType qf wincmd J
 
 "map <F4>:!cscope -Rbq<CR>:cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
 " 查找符号
@@ -441,14 +454,17 @@ nmap <SPACE>ci :cs find i <C-R>=expand("<cfile>")<CR><CR> :copen<CR><CR>
 " 设定是否使用QuickFix来显示结果
 set cscopequickfix=s-,c-,d-,i-,t-,e-
  
-" " QuickFix open and close
-" nnoremap <F11> :copen<CR>
-" nnoremap <F12> :cclose<CR>
-" 
-" " QucikFix next and prev
+" QuickFix open and close
+nmap cn :cnext<CR>
+nmap cp :cprevious<CR>
+nmap cc :cclose<CR>
+nmap cf :cfirst<CR>
+nmap cl :clast<CR>
+
+" QucikFix next and prev
 " nnoremap <leader>cn :cn<CR>
 " nnoremap <leader>cp :cp<CR>
-" 
+ 
 "  "--------------------------------------------------------------------------------
 " "  自动加载ctags: ctags -R
 " if filereadable("tags")

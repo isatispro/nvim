@@ -24,12 +24,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/tmux-complete.vim'
 Plug 'antoinemadec/coc-fzf'
 Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
 
 " Autoformat
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 " Plug 'Chiel92/vim-autoformat'
+Plug 'tmhedberg/simpylfold' 
 
 """""""""""""""""""""""""""""""""""
 " => 输入法
@@ -40,6 +42,7 @@ Plug 'google/vim-glaive'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'tomasr/molokai'
+Plug 'luochen1990/rainbow'
 
 """""""""""""""""""""""""""""""""""
 " => 状态栏 
@@ -63,7 +66,7 @@ Plug 'junegunn/vim-easy-align'
 " Plug 'skywind3000/gutentags_plus'
 
 """""""""""""""""""""""""""""""""""
-" => 符号对齐
+" => taglist
 Plug 'vim-scripts/taglist.vim'
 Plug 'liuchengxu/vista.vim'
 "Plug 'preservim/tagbar'

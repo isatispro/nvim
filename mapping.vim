@@ -8,7 +8,6 @@ map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
 
-
 " quick edit
 " 快速注释
 map <leader><space> :FixWhitespace<cr>
@@ -21,7 +20,7 @@ nmap <Leader>a <Plug>(EasyAlign)
 " ==> auto Complete
 " mappings
 nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
-nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
+nnoremap <silent> <space>a       :<C-u>CocFzfList dwagnostics<CR>
 nnoremap <silent> <space>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
 nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
@@ -152,5 +151,5 @@ noremap <silent> <SPACE>gd :GscopeFind d <C-R><C-W><cr>
 noremap <silent> <SPACE>ga :GscopeFind a <C-R><C-W><cr>
 noremap <silent> <SPACE>gz :GscopeFind z <C-R><C-W><cr>
 """"""""""""""""""""""""""""""""""""
-" => Plug Mapping Start
+" => Plug Mapping end
 """"""""""""""""""""""""""""""""""""
