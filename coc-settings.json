@@ -178,6 +178,8 @@
 		"elixir": "mix_format",
 		"eelixir": "mix_format"
 	},
+	"clangd.enabled": true,
+	"clangd.checkUpdates": true,
 	"languageserver": {
 		"lua": {
 			"command": "lua-lsp",

@@ -68,7 +68,7 @@ Plug 'junegunn/vim-easy-align'
 """""""""""""""""""""""""""""""""""
 " => taglist
 Plug 'vim-scripts/taglist.vim'
-Plug 'liuchengxu/vista.vim'
+" Plug 'liuchengxu/vista.vim'
 "Plug 'preservim/tagbar'
 "nmap <leader>tl :TagbarToggle<cr> 
 
