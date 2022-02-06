@@ -9,7 +9,7 @@ return require('packer').startup(function()
   use {
       'wbthomason/packer.nvim'
   }
-    
+
   -- nvim-tree
   use {
     'kyazdani42/nvim-tree.lua',
@@ -75,6 +75,7 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/plenary.nvim'}}
   }
+
   ------------------------------------
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

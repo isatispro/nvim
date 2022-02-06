@@ -26,6 +26,8 @@ map("v", ">", ">gv", opt)
 map("n", "/", "/\\v", { noremap = true , silent = false})
 map("v", "/", "/\\v", { noremap = true , silent = false})
 
+map('n', '<leader>w', ':w<CR>', opt)
+map('n', '<leader>q', ':w<CR>', opt)
 ------------------------------------------------------------------
 -- windows 分屏快捷键
 map("n", "sv", ":vsp<CR>", opt)
@@ -36,8 +38,7 @@ map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
 map("n", "so", "<C-w>o", opt) -- close others
 
--- 比例控制
-map("n", "s.", ":vertical resize +20<CR>", opt)
+-- 比例控制 map("n", "s.", ":vertical resize +20<CR>", opt)
 map("n", "s,", ":vertical resize -20<CR>", opt)
 map("n", "s=", "<C-w>=", opt)
 map("n", "sj", ":resize +10<CR>", opt)
@@ -58,13 +59,16 @@ map("n", "<leader>i", "gg=G", opt)
 -- Telescope
 map("n", "<leader>ff", ":Telescope find_files<CR>", opt)
 -- map("n", "<leader>f", ":Telescope find_files<CR>", opt)
-map("n", "<leader>g", ":Telescope live_grep<CR>", opt)
+map("n", "<leader>fg", ":Telescope live_grep<CR>", opt)
+map("n", "<leader>fb", ":Telescope buffers<CR>", opt)
+map("n", "<leader>fa", ":Telescope tags<CR>", opt)
+map("n", "<leader>m", ":Telescope keymaps<CR>", opt)
 
 
 local pluginKeys = {}
 
 -- 代码注释插件
--- see ./lua/plugin-config/comment.lua
+-- see ./lua/config/comment.lua
 pluginKeys.comment = {
     toggler = {
         line = 'gcc',
