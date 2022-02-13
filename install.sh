@@ -3,4 +3,5 @@ yes | sudo npm install yarn
 yes | sudo gen install neovim 
 yes | sudo pip install pynvim neovim
 yes | sudo pip install pynvim ueberzug
+yes | sudo npm -g install instant-markdown-d
 
