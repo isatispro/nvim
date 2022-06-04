@@ -27,7 +27,7 @@ map("n", "/", "/\\v", { noremap = true , silent = false})
 map("v", "/", "/\\v", { noremap = true , silent = false})
 
 map('n', '<leader>w', ':w<CR>', opt)
-map('n', '<leader>q', ':w<CR>', opt)
+map('n', '<leader>q', ':q<CR>', opt)
 ------------------------------------------------------------------
 -- windows 分屏快捷键
 map("n", "sv", ":vsp<CR>", opt)

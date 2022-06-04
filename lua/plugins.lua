@@ -68,6 +68,10 @@ return require('packer').startup(function()
 
   use 'simrat39/rust-tools.nvim'
   
+  --lua
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+
   -- telescope
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'

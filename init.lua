@@ -8,4 +8,5 @@ require('config/nvim-tree')
 require('config/telescope')
 require('config/nvim-autopairs')
 require('config/comment')
+require('lsp/lspinit')
 
