@@ -4,6 +4,29 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
+
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+-- Have packer use a popup window
+packer.init {
+  display = {
+    -- open_fn = function()
+    --   return require("packer.util").float { border = "rounded" }
+    -- end,
+  },
+}
+
 return require('packer').startup(function()
   -- Packer can manage itself
   use {
@@ -48,10 +71,29 @@ return require('packer').startup(function()
   -- onedark
   use 'ful1e5/onedark.nvim'
 
+  -- Debugger
+  use "ravenxrz/DAPInstall.nvim" -- help us install several debuggers
+  use {
+    "ravenxrz/nvim-dap",
+    -- commit = "f9480362549e2b50a8616fe4530deaabbc4f889b",
+  }
+  use "theHamsta/nvim-dap-virtual-text"
+  use "rcarriga/nvim-dap-ui"
+  -- use "mfussenegger/nvim-dap-python"    -- debug python
+  -- use { "leoluz/nvim-dap-go", module = "dap-go" } -- debug golang
+  use { "jbyuki/one-small-step-for-vimkind", module = "osv" } -- debug any Lua code running in a Neovim instance
+  use {
+    "sakhnik/nvim-gdb",
+    run = "./install.sh"
+  }
+
   -------------------------- lsp -------------------------------------------
 
   -- lspconfig
   use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
+  use "kosayoda/nvim-lightbulb" -- code action
+  use "ray-x/lsp_signature.nvim"
+
   -- nvim-cmp
   use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
   use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
@@ -62,6 +104,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-vsnip'    -- { name = 'vsnip' }
   use 'hrsh7th/vim-vsnip'
   use 'rafamadriz/friendly-snippets'
+  use "hrsh7th/cmp-nvim-lua"
   -- lspkind
   use 'onsails/lspkind-nvim'
   -- use 'github/copilot.vim'
@@ -79,6 +122,17 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/plenary.nvim'}}
   }
+  
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+  }
+
+  use "nvim-telescope/telescope-ui-select.nvim"
+  use "nvim-telescope/telescope-rg.nvim"
+  use "MattesGroeger/vim-bookmarks"
+  use "tom-anders/telescope-vim-bookmarks.nvim"
+  use "nvim-telescope/telescope-dap.nvim"
 
   ------------------------------------
   -- Automatically set up your configuration after cloning packer.nvim
