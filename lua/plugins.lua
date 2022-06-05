@@ -48,7 +48,14 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-  
+    use {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  } -- enhance texetobject selection
+  use "romgrk/nvim-treesitter-context" -- show class/function at the top
+  -- use "m-demare/hlargs.nvim"
+  -- use "smiteshp/nvim-gps" -- statusline shows class structure
+  use "andymass/vim-matchup"
+
   -- bufferline
   use {
     'akinsho/bufferline.nvim',
@@ -94,7 +101,44 @@ return require('packer').startup(function()
     "sakhnik/nvim-gdb",
     run = "./install.sh"
   }
+  
+  use "norcalli/nvim-colorizer.lua" -- show color
+  use "folke/trouble.nvim"
+  use "j-hui/fidget.nvim" -- show lsp progress
+  use "voldikss/vim-translator" -- show lsp progress
 
+  -- Lua
+  -- use {
+  --   "folke/which-key.nvim",
+  --   config = function()
+  --     require("which-key").setup {
+  --       -- your configuration comes here
+  --       -- or leave it empty to use the default settings
+  --       -- refer to the configuration section below
+  --     }
+  --   end
+  -- }
+  --
+  use {
+    "ldelossa/litee.nvim",
+  }
+  use {
+    "ldelossa/litee-calltree.nvim",
+  }
+
+  use {
+    "simrat39/symbols-outline.nvim",
+  }
+  use {
+    "akinsho/toggleterm.nvim",
+    event = "BufWinEnter",
+    branch = "main",
+  }
+
+  -- use {
+  --   'stevearc/aerial.nvim',
+  --   config = function() require('aerial').setup() end
+  -- }
   -------------------------- lsp -------------------------------------------
 
   -- lspconfig
@@ -103,11 +147,16 @@ return require('packer').startup(function()
   use "ray-x/lsp_signature.nvim"
 
   -- nvim-cmp
+  use 'ms-jpq/coq_nvim' -- { name = nvim_lsp }
+  use 'ms-jpq/coq.artifacts' -- { name = nvim_lsp }
+  use 'ms-jpq/coq.thirdparty' -- { name = nvim_lsp }
+
   use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
   use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
   use 'hrsh7th/cmp-path'     -- { name = 'path' }
   use 'hrsh7th/cmp-cmdline'  -- { name = 'cmdline' }
-  
+  use "tamago324/nlsp-settings.nvim"
+
   use "jsfaint/gen_tags.vim"
   use "ray-x/cmp-treesitter"
   use "f3fora/cmp-spell" -- spell check
