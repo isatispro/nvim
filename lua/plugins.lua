@@ -28,10 +28,14 @@ packer.init {
 }
 
 return require('packer').startup(function()
+  use "lewis6991/impatient.nvim" -- Speed up loading Lua modules    TODO: figure out how to use this
   -- Packer can manage itself
   use {
       'wbthomason/packer.nvim'
   }
+
+  use "rcarriga/nvim-notify" -- notify
+  use "kyazdani42/nvim-web-devicons" -- icons
 
   -- nvim-tree
   use {
@@ -53,8 +57,12 @@ return require('packer').startup(function()
   }
 
   -- Comment
-  use 'numToStr/Comment.nvim'
-
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
   -- nvim-autopairs
   use 'windwp/nvim-autopairs'
     --------------------------- colorscheme ------------------------------------
@@ -99,6 +107,10 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
   use 'hrsh7th/cmp-path'     -- { name = 'path' }
   use 'hrsh7th/cmp-cmdline'  -- { name = 'cmdline' }
+  
+  use "jsfaint/gen_tags.vim"
+  use "ray-x/cmp-treesitter"
+  use "f3fora/cmp-spell" -- spell check
   use 'hrsh7th/nvim-cmp'
   -- vsnip
   use 'hrsh7th/cmp-vsnip'    -- { name = 'vsnip' }
@@ -115,7 +127,7 @@ return require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
-  -- telescope
+  --------------------- telescope -----------------------------
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use {

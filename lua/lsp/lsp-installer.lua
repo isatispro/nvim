@@ -23,22 +23,22 @@ lsp_installer.on_server_ready(function(server)
   }
 
   if server.name == "clangd" then
-    local clangd_opts = require("lsp.clangd")
+    local clangd_opts = require("lsp..cfg.clangd")
     opts = vim.tbl_deep_extend("force", clangd_opts, opts)
   end
 
   if server.name == "jsonls" then
-    local jsonls_opts = require("lsp.jsonls")
+    local jsonls_opts = require("lsp.cfg.jsonls")
     opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
   end
 
   if server.name == "sumneko_lua" then
-    local sumneko_opts = require("lsp.sumneko_lua")
+    local sumneko_opts = require("lsp.cfg.sumneko_lua")
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
   end
 
   if server.name == "pyright" then
-    local pyright_opts = require("lsp.pyright")
+    local pyright_opts = require("lsp.cfg.pyright")
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 

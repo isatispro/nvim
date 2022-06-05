@@ -10,6 +10,7 @@ local function bind_option(options)
 	end
 end
 
+
 -- completion symbols
 vim.lsp.protocol.CompletionItemKind = {
     "   (Text) ",
@@ -38,7 +39,6 @@ vim.lsp.protocol.CompletionItemKind = {
     "   (Operator)",
     "   (TypeParameter)"
 }
-
 local function load_options()
 	local global_local = {
 		termguicolors = true,

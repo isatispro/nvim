@@ -8,8 +8,7 @@ local opt = {
     noremap = true,
     silent = true
 }
-
-map("n", "<C-j>", "4j", opt)
+-- 
 map("n", "<C-k>", "4k", opt)
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
@@ -50,8 +49,8 @@ map("n", "sk", ":resize -10<CR>", opt)
 map('n', '<leader>nn', ':NvimTreeToggle<CR>', opt)
 
 -- bufferline 左右Tab切换
-map("n", "<tab>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<C-tab>", ":BufferLineCycleNext<CR>", opt)
+map("n", "]b", ":BufferLineCyclePrev<CR>", opt)
+map("n", "[b", ":BufferLineCycleNext<CR>", opt)
 
 -- nvim-treesitter 代码格式化
 map("n", "<leader>i", "gg=G", opt)
@@ -80,7 +79,7 @@ pluginKeys.comment = {
     }
 }
 
--- ctrl + /
+-- leader + /
 map("n", "<leader>co", "gcc", {noremap = false})
 map("v", "<leader>co", "gcc", {noremap = false})
 
