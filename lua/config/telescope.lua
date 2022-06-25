@@ -70,7 +70,7 @@ require('telescope').setup{
         -- even more opts
       }
     },
-    live_grep_raw = {
+    live_grep_args = {
       auto_quoting = false, -- enable/disable auto-quoting
     }
     -- Your extension configuration goes here:
@@ -85,5 +85,5 @@ telescope.load_extension('fzf')
 telescope.load_extension("ui-select")
 telescope.load_extension('dap')
 telescope.load_extension('vim_bookmarks')
-telescope.load_extension("live_grep_raw")
+telescope.load_extension("live_grep_args")
 -- load project extension. see project.lua file

@@ -146,7 +146,7 @@ local function load_options()
 	for name, value in pairs(global_local) do
 		vim.o[name] = value
 	end
-	
+
     vim.opt.termguicolors = true
     vim.o.background = "dark" -- or "light" for light mode
     vim.cmd([[colorscheme gruvbox]])

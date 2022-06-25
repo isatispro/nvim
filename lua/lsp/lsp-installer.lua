@@ -23,9 +23,14 @@ lsp_installer.on_server_ready(function(server)
   }
 
   if server.name == "clangd" then
-    local clangd_opts = require("lsp..cfg.clangd")
+    local clangd_opts = require("lsp.cfg.clangd")
     opts = vim.tbl_deep_extend("force", clangd_opts, opts)
   end
+
+  -- if server.name == "llvm" then
+  --   local clangd_opts = require("lsp.cfg.llvm")
+  --   opts = vim.tbl_deep_extend("force", llvm_opts, opts)
+  -- end
 
   if server.name == "jsonls" then
     local jsonls_opts = require("lsp.cfg.jsonls")

@@ -138,7 +138,20 @@ require("luasnip.loaders.from_vscode").load({ paths = { -- load custom snippets
   vim.fn.stdpath("config") .. "/my-snippets"
 } }) -- Load snippets from my-snippets folder
 
-cmp_config = {
+local function border(hl_name)
+   return {
+      { "╭", hl_name },
+      { "─", hl_name },
+      { "╮", hl_name },
+      { "│", hl_name },
+      { "╯", hl_name },
+      { "─", hl_name },
+      { "╰", hl_name },
+      { "│", hl_name },
+   }
+end
+
+local cmp_config = {
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
@@ -200,17 +213,17 @@ cmp_config = {
       luasnip = 1,
     },
     duplicates_default = 0,
-    format = function(entry, vim_item)
-      local max_width = cmp_config.formatting.max_width
-      if max_width ~= 0 and #vim_item.abbr > max_width then
-        vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. "…"
-      end
-      vim_item.kind = cmp_config.formatting.kind_icons[vim_item.kind]
-      vim_item.menu = cmp_config.formatting.source_names[entry.source.name]
-      vim_item.dup = cmp_config.formatting.duplicates[entry.source.name]
-          or cmp_config.formatting.duplicates_default
-      return vim_item
-    end,
+    -- format = function(entry, vim_item)
+    --   local max_width = cmp_config.formatting.max_width
+    --   if max_width ~= 0 and #vim_item.abbr > max_width then
+    --     vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. "…"
+    --   end
+    --   vim_item.kind = cmp_config.formatting.kind_icons[vim_item.kind]
+    --   vim_item.menu = cmp_config.formatting.source_names[entry.source.name]
+    --   vim_item.dup = cmp_config.formatting.duplicates[entry.source.name]
+    --       or cmp_config.formatting.duplicates_default
+    --   return vim_item
+    -- end,
   },
   snippet = {
     expand = function(args)
@@ -218,8 +231,15 @@ cmp_config = {
     end,
   },
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+      completion = {
+         border = border "CmpBorder",
+         winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+      },
+      documentation = {
+         border = border "CmpDocBorder",
+      },
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
   },
   sources = {
     { name = "nvim_lsp" },
@@ -273,22 +293,26 @@ cmp_config = {
 
     ["<C-p>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.abort(),
-    ["<CR>"] = cmp.mapping(function(fallback)
-      if cmp.visible() and cmp.confirm(cmp_config.confirm_opts) then
-        if jumpable(1) then
-          luasnip.jump(1)
-        end
-        return
-      end
-
-      if jumpable(1) then
-        if not luasnip.jump(1) then
-          fallback()
-        end
-      else
-        fallback()
-      end
-    end),
+    ["<CR>"] = cmp.mapping.confirm {
+         behavior = cmp.ConfirmBehavior.Insert,
+         select = true,
+    },
+    -- ["<CR>"] = cmp.mapping(function(fallback)
+    --   if cmp.visible() and cmp.confirm(cmp_config.confirm_opts) then
+    --     if jumpable(1) then
+    --       luasnip.jump(1)
+    --     end
+    --     return
+    --   end
+    --
+    --   if jumpable(1) then
+    --     if not luasnip.jump(1) then
+    --       fallback()
+    --     end
+    --   else
+    --     fallback()
+    --   end
+    -- end),
   },
 }
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).

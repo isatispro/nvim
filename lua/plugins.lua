@@ -129,10 +129,21 @@ return require('packer').startup(function()
   use {
     "simrat39/symbols-outline.nvim",
   }
+
+  use {"akinsho/toggleterm.nvim", tag = 'v1.*', config = function()
+    require("toggleterm").setup()
+  end}
+
+  -------------------------- coc -------------------------------------------
+  -- Use release branch (recommend)
+  
+  -- use {
+  -- -- Or build from source code by using yarn: https://yarnpkg.com
+  -- 'neoclide/coc.nvim', 
+  -- branch = 'master',
+  use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
   use {
-    "akinsho/toggleterm.nvim",
-    event = "BufWinEnter",
-    branch = "main",
+      'honza/vim-snippets'
   }
 
   -- use {
@@ -142,40 +153,44 @@ return require('packer').startup(function()
   -------------------------- lsp -------------------------------------------
 
   -- lspconfig
-  use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
-  use "kosayoda/nvim-lightbulb" -- code action
-  use "ray-x/lsp_signature.nvim"
-
-  -- nvim-cmp
-  use 'ms-jpq/coq_nvim' -- { name = nvim_lsp }
-  use 'ms-jpq/coq.artifacts' -- { name = nvim_lsp }
-  use 'ms-jpq/coq.thirdparty' -- { name = nvim_lsp }
-
-  use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
-  use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
-  use 'hrsh7th/cmp-path'     -- { name = 'path' }
-  use 'hrsh7th/cmp-cmdline'  -- { name = 'cmdline' }
-  use "tamago324/nlsp-settings.nvim"
-
-  use "jsfaint/gen_tags.vim"
-  use "ray-x/cmp-treesitter"
-  use "f3fora/cmp-spell" -- spell check
-  use 'hrsh7th/nvim-cmp'
-  -- vsnip
-  use 'hrsh7th/cmp-vsnip'    -- { name = 'vsnip' }
-  use 'hrsh7th/vim-vsnip'
-  use 'rafamadriz/friendly-snippets'
-  use "hrsh7th/cmp-nvim-lua"
-  -- lspkind
-  use 'onsails/lspkind-nvim'
+  -- use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
+  -- use "kosayoda/nvim-lightbulb" -- code action
+  -- use "ray-x/lsp_signature.nvim"
+  --
+  -- -- nvim-cmp
+  -- use 'ms-jpq/coq_nvim' -- { name = nvim_lsp }
+  -- use 'ms-jpq/coq.artifacts' -- { name = nvim_lsp }
+  -- use 'ms-jpq/coq.thirdparty' -- { name = nvim_lsp }
+  --
+  -- use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
+  -- use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
+  -- use 'hrsh7th/cmp-path'     -- { name = 'path' }
+  -- use 'hrsh7th/cmp-cmdline'  -- { name = 'cmdline' }
+  -- use "tamago324/nlsp-settings.nvim"
+  --
+  -- use "jsfaint/gen_tags.vim"
+  -- use "ray-x/cmp-treesitter"
+  -- use "f3fora/cmp-spell" -- spell check
+  -- use 'hrsh7th/nvim-cmp'
+  -- -- vsnip
+  -- use 'hrsh7th/cmp-vsnip'    -- { name = 'vsnip' }
+  -- use 'hrsh7th/vim-vsnip'
+  -- use 'rafamadriz/friendly-snippets'
+  -- use "hrsh7th/cmp-nvim-lua"
+  -- -- lspkind
+  -- use 'onsails/lspkind-nvim'
   -- use 'github/copilot.vim'
 
   use 'simrat39/rust-tools.nvim'
   
   --lua
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  -- use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+  -- use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
+  --fzf-lua
+  use { 'ibhagwan/fzf-lua',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
   --------------------- telescope -----------------------------
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'

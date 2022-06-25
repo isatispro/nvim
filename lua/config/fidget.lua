@@ -54,3 +54,4 @@ fidget.setup{
     strict = false,           -- whether to interpret LSP strictly
   },
 }
+

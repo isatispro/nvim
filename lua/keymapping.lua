@@ -8,7 +8,7 @@ local opt = {
     noremap = true,
     silent = true
 }
--- 
+
 map("n", "<C-k>", "4k", opt)
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
@@ -49,7 +49,7 @@ map("n", "sk", ":resize -10<CR>", opt)
 map('n', '<leader>nn', ':NvimTreeToggle<CR>', opt)
 
 -- symbols-outline
-map('n', '<leader>tl', ':SymbolsOutline<CR>', opt)
+-- map('n', '<leader>tl', ':SymbolsOutline<CR>', opt)
 
 -- bufferline 左右Tab切换
 map("n", "]b", ":BufferLineCyclePrev<CR>", opt)
@@ -69,14 +69,45 @@ map("n", "<leader>/", ":nohl<cr>", opt)
 -- calltree
 map("n", "<leader>in", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>", opt)
 
--- Telescope
-map("n", "<leader>ff", ":Telescope find_files<CR>", opt)
+-- fuzzy find(fzf Telescope)
+map("n", "<leader>ff", ":FzfLua files<CR>", opt)
 -- map("n", "<leader>f", ":Telescope find_files<CR>", opt)
-map("n", "<leader>fg", ":Telescope live_grep<CR>", opt)
-map("n", "<leader>fb", ":Telescope buffers<CR>", opt)
-map("n", "<leader>fa", ":Telescope tags<CR>", opt)
-map("n", "<leader>fh", ":Telescope help_tags<CR>", opt)
+map("n", "<leader>fg", ":FzfLua live_grep<CR>", opt)
+map("n", "<leader>b", ":FzfLua buffers<CR>", opt)
+map("n", "<leader>fa", ":FzfLua tags<CR>", opt)
+map("n", "<leader>fb", ":FzfLua btags<CR>", opt)
+map("n", "<leader>fh", ":FzfLua help_tags<CR>", opt)
 map("n", "<leader>m", ":Telescope keymaps<CR>", opt)
+map("n", "<leader>ta", ":FzfLua lsp_workspace_symbols<CR>", opt)
+map("n", "<leader>tb", ":FzfLua lsp_document_symbols<CR>", opt)
+
+-- cscope
+
+-- lsp
+-- map("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
+-- map("n", "<leader>t", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
+-- map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
+-- map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+-- map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
+-- map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
+-- map("n", "<leader>u", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
+-- map("n", "<A-cr>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
+-- map("n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
+-- map("n", "<leader>dj", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opt)
+-- map("n", "<leader>dk", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opt)
+-- map("n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opt)
+-- map("n", "<leader>dq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opt)
+-- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+
+-- coc
+map("n", "ts", "<Plug>(coc-translator-p)", opt)
+map("n", "cm", ":CocList marketplace<cr>", opt)
+map("n", "ca", ":CocList symbols<cr>", opt)
+map("n", "cf", ":CocList files<cr>", opt)
+map("n", "cg", ":CocList grep<cr>", opt)
+map("n", "cl", ":CocList lines<cr>", opt)
+map("n", "ct", ":CocList tags<cr>", opt)
+map('n', '<leader>tl', ':CocList outline<CR>', opt)
 
 -- -- ToggleTerm
 -- function _G.set_terminal_keymaps()
