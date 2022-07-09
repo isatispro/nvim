@@ -109,6 +109,23 @@ map("n", "cl", ":CocList lines<cr>", opt)
 map("n", "ct", ":CocList tags<cr>", opt)
 map('n', '<leader>tl', ':CocList outline<CR>', opt)
 
+
+-- cscope
+map("n", "<space>cs", [[<cmd>lua cscope_search('s', vim.fn.expand("<cword>"))<cr>]], opt)
+map("n", "<space>cg", [[<cmd>lua cscope_search('g', vim.fn.expand("<cword>"))<cr>]], opt)
+map("n", "<space>cc", [[<cmd>lua cscope_search('c', vim.fn.expand("<cword>"))<cr>]], opt)
+map("n", "<space>ct", [[<cmd>lua cscope_search('t', vim.fn.expand("<cword>"))<cr>]], opt)
+map("n", "<space>ce", [[<cmd>lua cscope_search('e', vim.fn.expand("<cword>"))<cr>]], opt)
+map("n", "<space>cf", [[<cmd>lua cscope_search('f', vim.fn.expand("<cfile>"))<cr>]], opt)
+map("n", "<space>ci", [[<cmd>lua cscope_search('i', vim.fn.expand("<cfile>"))<cr>]], opt)
+map("n", "<space>cd", [[<cmd>lua cscope_search('d', vim.fn.expand("<cword>"))<cr>]], opt)
+map("n", "<space>ca", [[<cmd>lua cscope_search('a', vim.fn.expand("<cword>"))<cr>]], opt)
+map("n", "cn", ":cnext<cr>", opt)
+map("n", "cp", ":cprevious<cr>", opt)
+map("n", "cc", ":cclose<cr>", opt)
+map("n", "cf", ":cfirst<cr>", opt)
+map("n", "cl", ":clast<cr>", opt)
+
 -- -- ToggleTerm
 -- function _G.set_terminal_keymaps()
 --   map("t", "<esc>", "<C-\\><C-n>")

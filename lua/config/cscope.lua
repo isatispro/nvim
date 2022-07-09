@@ -49,19 +49,4 @@ if io.open("cscope.out", "r") ~= nil then
 	-- Mappings
 	local opts = { noremap = true, silent = true }
    --Add leader shortcuts
-   vim.api.nvim_set_keymap("n", "<space>cs", [[<cmd>lua cscope_search('s', vim.fn.expand("<cword>"))<cr>]], opts)
-   vim.api.nvim_set_keymap("n", "<space>cg", [[<cmd>lua cscope_search('g', vim.fn.expand("<cword>"))<cr>]], opts)
-   vim.api.nvim_set_keymap("n", "<space>cc", [[<cmd>lua cscope_search('c', vim.fn.expand("<cword>"))<cr>]], opts)
-   vim.api.nvim_set_keymap("n", "<space>ct", [[<cmd>lua cscope_search('t', vim.fn.expand("<cword>"))<cr>]], opts)
-   vim.api.nvim_set_keymap("n", "<space>ce", [[<cmd>lua cscope_search('e', vim.fn.expand("<cword>"))<cr>]], opts)
-   vim.api.nvim_set_keymap("n", "<space>cf", [[<cmd>lua cscope_search('f', vim.fn.expand("<cfile>"))<cr>]], opts)
-   vim.api.nvim_set_keymap("n", "<space>ci", [[<cmd>lua cscope_search('i', vim.fn.expand("<cfile>"))<cr>]], opts)
-   vim.api.nvim_set_keymap("n", "<space>cd", [[<cmd>lua cscope_search('d', vim.fn.expand("<cword>"))<cr>]], opts)
-   vim.api.nvim_set_keymap("n", "<space>ca", [[<cmd>lua cscope_search('a', vim.fn.expand("<cword>"))<cr>]], opts)
-   vim.api.nvim_set_keymap("n", "cn", ":cnext<cr>", opts)
-   vim.api.nvim_set_keymap("n", "cp", ":cprevious<cr>", opts)
-   vim.api.nvim_set_keymap("n", "cc", ":cclose<cr>", opts)
-   vim.api.nvim_set_keymap("n", "cf", ":cfirst<cr>", opts)
-   vim.api.nvim_set_keymap("n", "cl", ":clast<cr>", opts)
-
 end
