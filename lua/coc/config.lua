@@ -39,7 +39,6 @@ vim.g.coc_global_extensions = {
  'coc-yaml',
  'coc-yank'}
 
- vim.g.coc_snippet_next = '<tab>'
 
 vim.cmd( [[
 function! s:DiagnosticNotify() abort
@@ -236,3 +235,4 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 ]])
 
+ vim.g.coc_snippet_next = '<tab>'

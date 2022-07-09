@@ -31,13 +31,18 @@ if io.open("cscope.out", "r") ~= nil then
 	}
 
 	-- function to print xcscpoe.el like prompts
+	-- cscope_search = function(operation, default_symbol)
+	-- 	local new_symbol = vim.fn.input(sym_map[operation] .. " (default: '" .. default_symbol .. "'): ")
+	-- 	if "" ~= new_symbol then
+	-- 		vim.cmd(":cs find " .. operation .. " " .. new_symbol)
+	-- 	else
+	-- 		vim.cmd(":cs find " .. operation .. " " .. default_symbol)
+	-- 	end
+	-- 	vim.cmd("copen")
+	-- end
+
 	cscope_search = function(operation, default_symbol)
-		local new_symbol = vim.fn.input(sym_map[operation] .. " (default: '" .. default_symbol .. "'): ")
-		if "" ~= new_symbol then
-			vim.cmd(":cs find " .. operation .. " " .. new_symbol)
-		else
-			vim.cmd(":cs find " .. operation .. " " .. default_symbol)
-		end
+		vim.cmd(":cs find " .. operation .. " " .. default_symbol)
 		vim.cmd("copen")
 	end
 
