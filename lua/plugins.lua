@@ -6,7 +6,6 @@ end
 
 vim.cmd [[
   augroup packer_user_config
-    autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]]
@@ -229,7 +228,7 @@ return require('packer').startup(function()
 
   use 'goolord/alpha-nvim'
 
-  use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
+  -- use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   ------------------------------------
   -- Automatically set up your configuration after cloning packer.nvim

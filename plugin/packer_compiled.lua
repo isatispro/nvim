@@ -105,11 +105,6 @@ _G.packer_plugins = {
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
-  ["code_runner.nvim"] = {
-    loaded = true,
-    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/code_runner.nvim",
-    url = "https://github.com/CRAG666/code_runner.nvim"
-  },
   ["fcitx5.nvim"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/fcitx5.nvim",

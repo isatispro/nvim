@@ -81,6 +81,12 @@ map("n", "<leader>m", ":Telescope keymaps<CR>", opt)
 map("n", "<leader>ta", ":FzfLua lsp_workspace_symbols<CR>", opt)
 map("n", "<leader>tb", ":FzfLua lsp_document_symbols<CR>", opt)
 
+-- 使用ctrl + 方向健调整当前窗口大小 
+map("n","<C-k>", ":res +5<CR>", opt)
+map("n","<C-j>", ":res -5<CR>",opt)
+map("n","<C-h>", ":vertical resize-5<CR>",opt)
+map("n","<C-l>", ":vertical resize+5<CR>",opt)
+
 -- cscope
 
 -- lsp

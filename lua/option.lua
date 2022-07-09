@@ -46,6 +46,7 @@ local function load_options()
 		errorbells = true,
 		visualbell = true,
 		hidden = true,
+		filetype = true,
 		fileformats = "unix,mac,dos",
 		magic = true,
 		virtualedit = "block",

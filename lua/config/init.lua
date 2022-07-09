@@ -24,7 +24,9 @@ require('config.fcitx5')
 require('config.auto-session')
 -- require('config.lualine')
 require('config.project')
-require('config.code_runner')
+--require('config.code_runner')
 
 --vim cfg
 vim.cmd('source ~/.config/nvim/lua/config/vista_cfg.vim')
+vim.cmd('source ~/.config/nvim/lua/config/code_run.vim')
+vim.cmd('source ~/.config/nvim/lua/config/file_header.vim')
