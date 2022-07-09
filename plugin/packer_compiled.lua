@@ -80,15 +80,40 @@ _G.packer_plugins = {
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/DAPInstall.nvim",
     url = "https://github.com/ravenxrz/DAPInstall.nvim"
   },
+  ["alpha-nvim"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
+  },
+  ["auto-session"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/auto-session",
+    url = "https://github.com/rmagatti/auto-session"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  ["close-buffers.nvim"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/close-buffers.nvim",
+    url = "https://github.com/kazhala/close-buffers.nvim"
+  },
   ["coc.nvim"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
+  },
+  ["code_runner.nvim"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/code_runner.nvim",
+    url = "https://github.com/CRAG666/code_runner.nvim"
+  },
+  ["fcitx5.nvim"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/fcitx5.nvim",
+    url = "https://github.com/hosxy/fcitx5.nvim"
   },
   ["fidget.nvim"] = {
     loaded = true,
@@ -218,15 +243,15 @@ _G.packer_plugins = {
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["project.nvim"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/project.nvim",
+    url = "https://github.com/ahmedkhalf/project.nvim"
+  },
   ["rust-tools.nvim"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
-  },
-  ["symbols-outline.nvim"] = {
-    loaded = true,
-    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
-    url = "https://github.com/simrat39/symbols-outline.nvim"
   },
   ["telescope-dap.nvim"] = {
     loaded = true,
@@ -269,10 +294,35 @@ _G.packer_plugins = {
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+  undotree = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-airline"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-airline",
+    url = "https://github.com/vim-airline/vim-airline"
+  },
+  ["vim-airline-themes"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
+    url = "https://github.com/vim-airline/vim-airline-themes"
+  },
   ["vim-bookmarks"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-bookmarks",
     url = "https://github.com/MattesGroeger/vim-bookmarks"
+  },
+  ["vim-cppman"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-cppman",
+    url = "https://github.com/skywind3000/vim-cppman"
+  },
+  ["vim-lsp-cxx-highlight"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-lsp-cxx-highlight",
+    url = "https://github.com/jackguo380/vim-lsp-cxx-highlight"
   },
   ["vim-matchup"] = {
     loaded = true,
@@ -288,6 +338,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-translator",
     url = "https://github.com/voldikss/vim-translator"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
+  },
+  ["vista.vim"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vista.vim",
+    url = "https://github.com/liuchengxu/vista.vim"
   },
   ["zephyr-nvim"] = {
     loaded = true,

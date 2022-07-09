@@ -179,8 +179,8 @@
 		"elixir": "mix_format",
 		"eelixir": "mix_format"
 	},
-	"clangd.enabled": true,
-	"clangd.checkUpdates": true,
+	"clangd.enabled": false,
+	"clangd.checkUpdates": false,
 	"languageserver": {
 		"swift": {
 			"command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
@@ -205,10 +205,24 @@
 			"filetypes": ["sh"],
 			"ignoredRootPaths": []
 		},
-		"clangd": {
-			"command": "clangd",
-			"rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-			"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+		"ccls": {
+			"command": "ccls",
+			"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+			"rootPatterns": ["compile_commands.json", ".git/"],
+			"initializationOptions": {
+				"cache": {
+					"directory": ".ccls-cache"
+				},
+				"highlight": {
+					"lsRanges": true
+				},
+				"client": {
+					"snippetSupport": true
+				},
+				"clang": {
+					"extraArgs": ["-Wall"]
+				}
+			}
 		}
 	},
 	"Lua.telemetry.enable": true,

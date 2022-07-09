@@ -20,3 +20,11 @@ require('config.alpha')
 require('config.terminal')
 require('config.fzf')
 require('config.cscope')
+require('config.fcitx5')
+require('config.auto-session')
+-- require('config.lualine')
+require('config.project')
+require('config.code_runner')
+
+--vim cfg
+vim.cmd('source ~/.config/nvim/lua/config/vista_cfg.vim')

@@ -39,8 +39,10 @@ vim.g.coc_global_extensions = {
  'coc-yaml',
  'coc-yank'}
 
+ vim.g.coc_snippet_next = '<tab>'
 -- vim.cmd( [[]])
 -- vim.fn.source("config.vim")
+-- vim scripts load
 vim.cmd('source ~/.config/nvim/lua/coc/config.vim')
+vim.cmd('source ~/.config/nvim/lua/coc/ccls.vim')
 
- vim.g.coc_snippet_next = '<tab>'

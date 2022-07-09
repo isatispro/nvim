@@ -56,11 +56,8 @@ return require('packer').startup(function()
   use "andymass/vim-matchup"
 
   -- bufferline
-  use {
-    'akinsho/bufferline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-    -- setup = function() require('config.bufferline') end
-  }
+  use 'akinsho/bufferline.nvim' -- buffer
+  use 'kazhala/close-buffers.nvim' -- 实现删除不可见 buffer 的功能
 
   -- Comment
   use {
@@ -125,9 +122,16 @@ return require('packer').startup(function()
     "ldelossa/litee-calltree.nvim",
   }
 
-  use {
-    "simrat39/symbols-outline.nvim",
-  }
+    -- c/c++
+    use 'jackguo380/vim-lsp-cxx-highlight' -- 为 c/cpp 提供基于 lsp 的高亮
+    use 'skywind3000/vim-cppman' -- http://cplusplus.com/ 和 http://cppreference.com/ 获取文档
+  -- use {
+  --   "simrat39/symbols-outline.nvim",
+  -- }
+
+  use 'liuchengxu/vista.vim' --vim symbols line
+
+  use 'mg979/vim-visual-multi' -- 同时编辑多个位置
 
   use {"akinsho/toggleterm.nvim", tag = 'v1.*', config = function()
     require("toggleterm").setup()
@@ -208,6 +212,24 @@ return require('packer').startup(function()
   use "MattesGroeger/vim-bookmarks"
   use "tom-anders/telescope-vim-bookmarks.nvim"
   use "nvim-telescope/telescope-dap.nvim"
+  use "ahmedkhalf/project.nvim"
+
+  use 'hosxy/fcitx5.nvim'
+
+  use 'rmagatti/auto-session' -- 打开 vim 的时候，自动回复上一次打开的样子
+  use 'mbbill/undotree' -- 显示编辑的历史记录
+
+  use 'vim-airline/vim-airline' -- 状态栏
+  use 'vim-airline/vim-airline-themes' -- 状态栏的主题
+
+  -- use {
+  --   'nvim-lualine/lualine.nvim',
+  --   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  -- }
+
+  use 'goolord/alpha-nvim'
+
+  use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   ------------------------------------
   -- Automatically set up your configuration after cloning packer.nvim

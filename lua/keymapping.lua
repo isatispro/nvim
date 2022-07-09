@@ -126,7 +126,21 @@ map("n", "cc", ":cclose<cr>", opt)
 map("n", "cf", ":cfirst<cr>", opt)
 map("n", "cl", ":clast<cr>", opt)
 
--- -- ToggleTerm
+-- tag list vista
+map("n", "<space>tl", ":Vista<cr>", opt)
+
+-- undo tree
+map("n", "<space>u", ":UndotreeToggle<cr>", opt)
+
+map('n', '<leader>r', ':RunCode<CR>', opt)
+map('n', '<leader>rf', ':RunFile<CR>', opt)
+map('n', '<leader>rft', ':RunFile tab<CR>', opt)
+map('n', '<leader>rp', ':RunProject<CR>', opt)
+map('n', '<leader>rc', ':RunClose<CR>', opt)
+map('n', '<leader>crf', ':CRFiletype<CR>', opt)
+map('n', '<leader>crp', ':CRProjects<CR>', opt)
+
+-- -- ToggleTerm  
 -- function _G.set_terminal_keymaps()
 --   map("t", "<esc>", "<C-\\><C-n>")
 --   map("t", "<A-h>", "<c-\\><c-n><c-w>h")
