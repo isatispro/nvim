@@ -31,17 +31,27 @@ local fzf_config = {
     -- 'none', 'single', 'double', 'thicc' or 'rounded' (default)
     border           = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
     fullscreen       = false,           -- start fullscreen?
-    hl = {
+    -- highlights should optimally be set by the colorscheme using
+    -- FzfLuaXXX highlights. If your colorscheme doesn't set these
+    -- or you wish to override its defaults use these:
+    --[[ hl = {
       normal         = 'Normal',        -- window normal color (fg+bg)
-      border         = 'Normal',        -- border color (try 'FloatBorder')
-      -- Only valid with the builtin previewer:
+      border         = 'FloatBorder',   -- border color
+      help_normal    = 'Normal',        -- <F1> window normal
+      help_border    = 'FloatBorder',   -- <F1> window border
+      -- Only used with the builtin previewer:
       cursor         = 'Cursor',        -- cursor highlight (grep/LSP matches)
       cursorline     = 'CursorLine',    -- cursor line
-      search         = 'Search',        -- search matches (ctags)
-      -- title       = 'Normal',        -- preview border title (file/buffer)
-      -- scrollbar_f = 'PmenuThumb',    -- scrollbar "full" section highlight
-      -- scrollbar_e = 'PmenuSbar',     -- scrollbar "empty" section highlight
-    },
+      cursorlinenr   = 'CursorLineNr',  -- cursor line number
+      search         = 'IncSearch',     -- search matches (ctags|help)
+      title          = 'Normal',        -- preview border title (file/buffer)
+      -- Only used with 'winopts.preview.scrollbar = 'float'
+      scrollfloat_e  = 'PmenuSbar',     -- scrollbar "empty" section highlight
+      scrollfloat_f  = 'PmenuThumb',    -- scrollbar "full" section highlight
+      -- Only used with 'winopts.preview.scrollbar = 'border'
+      scrollborder_e = 'FloatBorder',   -- scrollbar "empty" section highlight
+      scrollborder_f = 'FloatBorder',   -- scrollbar "full" section highlight
+    }, ]]
     preview = {
       -- default     = 'bat',           -- override the default previewer?
                                         -- default uses the 'builtin' previewer
@@ -53,7 +63,7 @@ local fzf_config = {
       horizontal     = 'right:60%',     -- right|left:size
       layout         = 'flex',          -- horizontal|vertical|flex
       flip_columns   = 120,             -- #cols to switch to horizontal on flex
-      -- Only valid with the builtin previewer:
+      -- Only used with the builtin previewer:
       title          = true,            -- preview border title (file/buf)?
       scrollbar      = 'float',         -- `false` or string:'float|border'
                                         -- float:  in-window floating border
@@ -152,7 +162,6 @@ local fzf_config = {
     -- set to '' for a non-value flag
     -- for raw args use `fzf_args` instead
     ['--ansi']        = '',
-    ['--prompt']      = '> ',
     ['--info']        = 'inline',
     ['--height']      = '100%',
     ['--layout']      = 'reverse',
@@ -193,7 +202,9 @@ local fzf_config = {
       cmd_deleted     = "git diff --color HEAD --",
       cmd_modified    = "git diff --color HEAD",
       cmd_untracked   = "git diff --color --no-index /dev/null",
-      -- pager        = "delta",      -- if you have `delta` installed
+      -- uncomment if you wish to use git-delta as pager
+      -- can also be set under 'git.status.preview_pager'
+      -- pager        = "delta --width=$FZF_PREVIEW_COLUMNS",
     },
     man = {
       -- NOTE: remove the `-c` flag when using man-db
@@ -222,7 +233,7 @@ local fzf_config = {
   },
   -- provider setup
   files = {
-    -- previewer      = "bat",          -- uncomment to override previewer
+    previewer      = "bat",          -- uncomment to override previewer
                                         -- (name from 'previewers' table)
                                         -- set to 'false' to disable
     prompt            = 'Files❯ ',
@@ -249,23 +260,27 @@ local fzf_config = {
   },
   git = {
     files = {
-      prompt          = 'GitFiles❯ ',
-      cmd             = 'git ls-files --exclude-standard',
-      multiprocess    = true,           -- run command in a separate process
-      git_icons       = true,           -- show git icons?
-      file_icons      = true,           -- show file icons?
-      color_icons     = true,           -- colorize file|git icons
+      prompt        = 'GitFiles❯ ',
+      cmd           = 'git ls-files --exclude-standard',
+      multiprocess  = true,           -- run command in a separate process
+      git_icons     = true,           -- show git icons?
+      file_icons    = true,           -- show file icons?
+      color_icons   = true,           -- colorize file|git icons
       -- force display the cwd header line regardles of your current working
       -- directory can also be used to hide the header when not wanted
       -- show_cwd_header = true
     },
     status = {
-      prompt          = 'GitStatus❯ ',
-      cmd             = "git status -s",
-      previewer       = "git_diff",
-      file_icons      = true,
-      git_icons       = true,
-      color_icons     = true,
+      prompt        = 'GitStatus❯ ',
+      -- consider using `git status -su` if you wish to see
+      -- untracked files individually under their subfolders
+      cmd           = "git status -s",
+      file_icons    = true,
+      git_icons     = true,
+      color_icons   = true,
+      previewer     = "git_diff",
+      -- uncomment if you wish to use git-delta as pager
+      --preview_pager = "delta --width=$FZF_PREVIEW_COLUMNS"
       actions = {
         -- actions inherit from 'actions.files' and merge
         ["right"]   = { actions.git_unstage, actions.resume },
@@ -273,17 +288,26 @@ local fzf_config = {
       },
     },
     commits = {
-      prompt          = 'Commits❯ ',
-      cmd             = "git log --pretty=oneline --abbrev-commit --color",
-      preview         = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
+      prompt        = 'Commits❯ ',
+      cmd           = "git log --color --pretty=format:'%C(yellow)%h%Creset %Cgreen(%><(12)%cr%><|(12))%Creset %s %C(blue)<%an>%Creset'",
+      preview       = "git show --pretty='%Cred%H%n%Cblue%an <%ae>%n%C(yellow)%cD%n%Cgreen%s' --color {1}",
+      -- uncomment if you wish to use git-delta as pager
+      --preview_pager = "delta --width=$FZF_PREVIEW_COLUMNS"
       actions = {
         ["default"] = actions.git_checkout,
       },
     },
     bcommits = {
-      prompt          = 'BCommits❯ ',
-      cmd             = "git log --pretty=oneline --abbrev-commit --color",
-      preview         = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
+      prompt        = 'BCommits❯ ',
+      -- default preview shows a git diff vs the previous commit
+      -- if you prefer to see the entire commit you can use:
+      --   git show --color {1} --rotate-to=<file>
+      --   {1}    : commit SHA (fzf field index expression)
+      --   <file> : filepath placement within the commands
+      cmd           = "git log --color --pretty=format:'%C(yellow)%h%Creset %Cgreen(%><(12)%cr%><|(12))%Creset %s %C(blue)<%an>%Creset' <file>",
+      preview       = "git diff --color {1}~1 {1} -- <file>",
+      -- uncomment if you wish to use git-delta as pager
+      --preview_pager = "delta --width=$FZF_PREVIEW_COLUMNS"
       actions = {
         ["default"] = actions.git_buf_edit,
         ["ctrl-s"]  = actions.git_buf_split,
@@ -350,7 +374,7 @@ local fzf_config = {
     -- 'rg_glob_fn' to return a pair:
     --   first returned argument is the new search query
     --   second returned argument are addtional rg flags
-    -- rg_glob_fn = function(opts, query)
+    -- rg_glob_fn = function(query, opts)
     --   ...
     --   return new_query, flags
     -- end,
@@ -495,52 +519,73 @@ local fzf_config = {
     cwd_only          = false,      -- LSP/diagnostics for cwd only?
     async_or_timeout  = 5000,       -- timeout(ms) or 'true' for async calls
     file_icons        = true,
-    git_icons         = false,
-    lsp_icons         = true,
+    git_icons         = true,
     ui_select         = true,       -- use 'vim.ui.select' for code actions
-    symbol_style      = 1,          -- style for document/workspace symbols
-                                    -- false: disable,    1: icon+kind
-                                    --     2: icon only,  3: kind only
-                                    -- NOTE: icons are extracted from
-                                    -- vim.lsp.protocol.CompletionItemKind
-    -- colorize using nvim-cmp's CmpItemKindXXX highlights
-    -- can also be set to 'TS' for treesitter highlights ('TSProperty', etc)
-    -- or 'false' to disable highlighting
-    symbol_hl_prefix  = "CmpItemKind",
-    -- additional symbol formatting, works with or without style
-    symbol_fmt        = function(s) return "["..s.."]" end,
-    severity          = "hint",
-    icons = {
-      ["Error"]       = { icon = "", color = "red" },       -- error
-      ["Warning"]     = { icon = "", color = "yellow" },    -- warning
-      ["Information"] = { icon = "", color = "blue" },      -- info
-      ["Hint"]        = { icon = "", color = "magenta" },   -- hint
+    -- settings for 'lsp_{document|workspace|lsp_live_workspace}_symbols'
+    symbols = {
+        async_or_timeout  = true,       -- symbols are async by default
+        symbol_style      = 1,          -- style for document/workspace symbols
+                                        -- false: disable,    1: icon+kind
+                                        --     2: icon only,  3: kind only
+                                        -- NOTE: icons are extracted from
+                                        -- vim.lsp.protocol.CompletionItemKind
+        -- colorize using nvim-cmp's CmpItemKindXXX highlights
+        -- can also be set to 'TS' for treesitter highlights ('TSProperty', etc)
+        -- or 'false' to disable highlighting
+        symbol_hl_prefix  = "CmpItemKind",
+        -- additional symbol formatting, works with or without style
+        symbol_fmt        = function(s) return "["..s.."]" end,
     },
   },
-  -- uncomment to disable the previewer
-  -- nvim = { marks = { previewer = { _ctor = false } } },
-  -- helptags = { previewer = { _ctor = false } },
-  -- manpages = { previewer = { _ctor = false } },
-  -- uncomment to set dummy win location (help|man bar)
-  -- "topleft"  : up
-  -- "botright" : down
-  -- helptags = { previewer = { split = "topleft" } },
+  diagnostics ={
+    prompt            = 'Diagnostics❯ ',
+    cwd_only          = false,
+    file_icons        = true,
+    git_icons         = false,
+    diag_icons        = true,
+    icon_padding      = '',     -- add padding for wide diagnostics signs
+    -- by default icons and highlights are extracted from 'DiagnosticSignXXX'
+    -- and highlighted by a highlight group of the same name (which is usually
+    -- set by your colorscheme, for more info see:
+    --   :help DiagnosticSignHint'
+    --   :help hl-DiagnosticSignHint'
+    -- only uncomment below if you wish to override the signs/highlights
+    -- define only text, texthl or both (':help sign_define()' for more info)
+    signs = {
+      ["Error"] = { text = "", texthl = "DiagnosticError" },
+      ["Warn"]  = { text = "", texthl = "DiagnosticWarn" },
+      ["Info"]  = { text = "", texthl = "DiagnosticInfo" },
+      ["Hint"]  = { text = "", texthl = "DiagnosticHint" },
+    },
+    -- limit to specific severity, use either a string or num:
+    --   1 or "hint"
+    --   2 or "information"
+    --   3 or "warning"
+    --   4 or "error"
+    -- severity_only:   keep any matching exact severity
+    -- severity_limit:  keep any equal or more severe (lower)
+    -- severity_bound:  keep any equal or less severe (higher)
+  },
+  -- uncomment to use the old help previewer which used a
+  -- minimized help window to generate the help tag preview
+  -- helptags = { previewer = "help_tags" },
   -- uncomment to use `man` command as native fzf previewer
-  -- manpages = { previewer = { _ctor = require'fzf-lua.previewer'.fzf.man_pages } },
+  -- (instead of using a neovim floating window)
+  -- manpages = { previewer = "man_native" },
+  -- 
   -- optional override of file extension icon colors
   -- available colors (terminal):
   --    clear, bold, black, red, green, yellow
   --    blue, magenta, cyan, grey, dark_grey, white
+  file_icon_colors = {
+    ["sh"] = "green",
+  },
   -- padding can help kitty term users with
   -- double-width icon rendering
   file_icon_padding = '',
-  file_icon_colors = {
-    ["lua"]   = "blue",
-  },
   -- uncomment if your terminal/font does not support unicode character
   -- 'EN SPACE' (U+2002), the below sets it to 'NBSP' (U+00A0) instead
   -- nbsp = '\xc2\xa0',
-
 }
 
 require("fzf-lua").setup(fzf_config)

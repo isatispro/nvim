@@ -72,7 +72,7 @@ return require('packer').startup(function()
   use {
     "ellisonleao/gruvbox.nvim",
     requires = {"rktjmp/lush.nvim"},
-    config = 'vim.cmd([[colorscheme gruvbox]])'
+    -- config = 'vim.cmd([[colorscheme gruvbox]])'
   }
   -- zephyr
   use 'glepnir/zephyr-nvim'
@@ -114,12 +114,12 @@ return require('packer').startup(function()
   --   end
   -- }
   --
-  use {
-    "ldelossa/litee.nvim",
-  }
-  use {
-    "ldelossa/litee-calltree.nvim",
-  }
+  -- use {
+  --   "ldelossa/litee.nvim",
+  -- }
+  -- use {
+  --   "ldelossa/litee-calltree.nvim",
+  -- }
 
     -- c/c++
     use 'jackguo380/vim-lsp-cxx-highlight' -- 为 c/cpp 提供基于 lsp 的高亮
@@ -132,9 +132,7 @@ return require('packer').startup(function()
 
   use 'mg979/vim-visual-multi' -- 同时编辑多个位置
 
-  use {"akinsho/toggleterm.nvim", tag = 'v1.*', config = function()
-    require("toggleterm").setup()
-  end}
+  use {"akinsho/toggleterm.nvim"}
 
   -------------------------- coc -------------------------------------------
   -- Use release branch (recommend)
@@ -218,16 +216,24 @@ return require('packer').startup(function()
   use 'rmagatti/auto-session' -- 打开 vim 的时候，自动回复上一次打开的样子
   use 'mbbill/undotree' -- 显示编辑的历史记录
 
-  use 'vim-airline/vim-airline' -- 状态栏
-  use 'vim-airline/vim-airline-themes' -- 状态栏的主题
+  -- use 'vim-airline/vim-airline' -- 状态栏
+  -- use 'vim-airline/vim-airline-themes' -- 状态栏的主题
 
-  -- use {
-  --   'nvim-lualine/lualine.nvim',
-  --   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  -- }
+  use 'nvim-lualine/lualine.nvim' --底部状态栏
 
   use 'goolord/alpha-nvim'
+  use 'sbdchd/neoformat'
 
+  use 'lambdalisue/suda.vim'
+  use {
+	'xeluxee/competitest.nvim',
+	requires = 'MunifTanjim/nui.nvim',
+	config = function() require'competitest'.setup() end
+  }
+
+  use 'Mofiqul/vscode.nvim'
+
+  -- use {'kevinhwang91/nvim-bqf'}
   -- use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   ------------------------------------

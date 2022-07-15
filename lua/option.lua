@@ -150,7 +150,7 @@ local function load_options()
 
     vim.opt.termguicolors = true
     vim.o.background = "dark" -- or "light" for light mode
-    vim.cmd([[colorscheme gruvbox]])
+    vim.cmd([[colorscheme vscode]])
 	bind_option(bw_local)
 end
 

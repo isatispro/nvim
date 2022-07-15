@@ -105,6 +105,12 @@ _G.packer_plugins = {
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["competitest.nvim"] = {
+    config = { "\27LJ\2\0029\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16competitest\frequire\0" },
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/competitest.nvim",
+    url = "https://github.com/xeluxee/competitest.nvim"
+  },
   ["fcitx5.nvim"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/fcitx5.nvim",
@@ -121,7 +127,6 @@ _G.packer_plugins = {
     url = "https://github.com/ibhagwan/fzf-lua"
   },
   ["gruvbox.nvim"] = {
-    config = { "vim.cmd([[colorscheme gruvbox]])" },
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
@@ -131,25 +136,30 @@ _G.packer_plugins = {
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
-  ["litee-calltree.nvim"] = {
+  ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/litee-calltree.nvim",
-    url = "https://github.com/ldelossa/litee-calltree.nvim"
-  },
-  ["litee.nvim"] = {
-    loaded = true,
-    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/litee.nvim",
-    url = "https://github.com/ldelossa/litee.nvim"
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["lush.nvim"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/lush.nvim",
     url = "https://github.com/rktjmp/lush.nvim"
   },
+  neoformat = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/neoformat",
+    url = "https://github.com/sbdchd/neoformat"
+  },
   ["nord.nvim"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/nord.nvim",
     url = "https://github.com/shaunsingh/nord.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -248,6 +258,11 @@ _G.packer_plugins = {
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
+  ["suda.vim"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/suda.vim",
+    url = "https://github.com/lambdalisue/suda.vim"
+  },
   ["telescope-dap.nvim"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
@@ -279,7 +294,6 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\0028\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
@@ -293,16 +307,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
-    url = "https://github.com/vim-airline/vim-airline-themes"
   },
   ["vim-bookmarks"] = {
     loaded = true,
@@ -344,6 +348,11 @@ _G.packer_plugins = {
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vista.vim",
     url = "https://github.com/liuchengxu/vista.vim"
   },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
+  },
   ["zephyr-nvim"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/zephyr-nvim",
@@ -380,18 +389,14 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: gruvbox.nvim
-time([[Config for gruvbox.nvim]], true)
-vim.cmd([[colorscheme gruvbox]])
-time([[Config for gruvbox.nvim]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\0025\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\0028\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
+-- Config for: competitest.nvim
+time([[Config for competitest.nvim]], true)
+try_loadstring("\27LJ\2\0029\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16competitest\frequire\0", "config", "competitest.nvim")
+time([[Config for competitest.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
