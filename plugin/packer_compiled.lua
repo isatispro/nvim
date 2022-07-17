@@ -146,6 +146,11 @@ _G.packer_plugins = {
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/lush.nvim",
     url = "https://github.com/rktjmp/lush.nvim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
   neoformat = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/neoformat",

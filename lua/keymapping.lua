@@ -146,6 +146,8 @@ map('n', '<leader>rc', ':RunClose<CR>', opt)
 map('n', '<leader>crf', ':CRFiletype<CR>', opt)
 map('n', '<leader>crp', ':CRProjects<CR>', opt)
 
+-- markdown preview
+map('n', '<leader>mp', ':MarkdownPreviewToggle<CR>', opt)
 -- -- ToggleTerm  
 -- function _G.set_terminal_keymaps()
 --   map("t", "<esc>", "<C-\\><C-n>")
