@@ -8,7 +8,7 @@ end
 
 -- vim.o.tabline = '%!v:lua.symbol_line()'
 -- vim.o.statusline = '%!v:lua.symbol_line()'
-vim.o.winbar = '%!v:lua.symbol_line()'
+-- vim.o.winbar = '%!v:lua.symbol_line()'
 
 -------------------------- coc_highlight ---------------------------------
-vim.cmd([[autocmd CursorHold * silent call CocActionAsync('highlight')]])
+-- vim.cmd([[autocmd CursorHold * silent call CocActionAsync('highlight')]])

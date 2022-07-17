@@ -323,6 +323,11 @@ _G.packer_plugins = {
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-cppman",
     url = "https://github.com/skywind3000/vim-cppman"
   },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
+  },
   ["vim-lsp-cxx-highlight"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/vim-lsp-cxx-highlight",

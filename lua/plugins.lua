@@ -236,6 +236,8 @@ return require('packer').startup(function()
   -- use {'kevinhwang91/nvim-bqf'}
   -- use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
 
+  use 'voldikss/vim-floaterm' --floaterm
+
   ------------------------------------
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
