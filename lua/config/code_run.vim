@@ -10,15 +10,23 @@ func CompileCpp()
         let compilecmd = "!clang++ "
         let compileflag = ""
         exec compilecmd." % ".compileflag
-endfunc
+    endfunc
+
 func CompileRS()
         exec "w"
         let compilecmd = "!cargo "
         let compileflag = "run"
         exec compilecmd.compileflag
 endfunc
-func CompileRun()
+
+func CompilePyton()
         exec "w"
+        let compilecmd = "!python "
+        let compileflag = ""
+        exec compilecmd." % "compileflag
+endfunc
+
+func CompileRun()
         if &filetype == "c"
                 exec "call CompileC()"
                 exec "! ./a.out"
@@ -28,6 +36,11 @@ func CompileRun()
         elseif &filetype == "rust"
                 exec "call CompileRS()"
                 return
+        elseif &filetype == "python"
+                exec "call CompilePyton()"
+                return
+        else
+                lua vim.notify("unsupport type")
         endif
 endfunc
 map <space>r :call CompileRun() <CR>

@@ -55,7 +55,7 @@ endfunction
 " let $NVIM_COC_LOG_FILE = '/Users/david/Desktop/log.txt'
 
 let g:snips_author = 'isatis'
-autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+" autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
 " Use <C-l> for trigger snippet expand.
 imap <C-s> <Plug>(coc-snippets-expand)
