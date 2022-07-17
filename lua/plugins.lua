@@ -83,10 +83,8 @@ return require('packer').startup(function()
 
   -- Debugger
   use "ravenxrz/DAPInstall.nvim" -- help us install several debuggers
-  use {
-    "ravenxrz/nvim-dap",
-    -- commit = "f9480362549e2b50a8616fe4530deaabbc4f889b",
-  }
+  -- use "Pocco81/dap-buddy.nvim" -- help us install several debuggers
+  use "ravenxrz/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
   -- use "mfussenegger/nvim-dap-python"    -- debug python
@@ -232,6 +230,8 @@ return require('packer').startup(function()
   }
 
   use 'Mofiqul/vscode.nvim'
+
+  use 'karb94/neoscroll.nvim'
 
   -- use {'kevinhwang91/nvim-bqf'}
   -- use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }

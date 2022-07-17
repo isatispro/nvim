@@ -28,6 +28,9 @@ require('config.neoformat')
 -- require('config.bqf')
 require('config.competitest')
 --require('config.code_runner')
+require('config.cfg_gdb')
+require('config.vscode')
+require('config.cfg_neoscroll')
 
 --vim cfg
 vim.cmd('source ~/.config/nvim/lua/config/vista_cfg.vim')

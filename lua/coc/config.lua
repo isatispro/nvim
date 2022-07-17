@@ -44,5 +44,5 @@ vim.g.coc_global_extensions = {
 -- vim.fn.source("config.vim")
 -- vim scripts load
 vim.cmd('source ~/.config/nvim/lua/coc/config.vim')
-vim.cmd('source ~/.config/nvim/lua/coc/ccls.vim')
+-- vim.cmd('source ~/.config/nvim/lua/coc/ccls.vim')
 

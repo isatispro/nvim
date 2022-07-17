@@ -151,6 +151,11 @@ _G.packer_plugins = {
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/neoformat",
     url = "https://github.com/sbdchd/neoformat"
   },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "/home/isatis/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
+    url = "https://github.com/karb94/neoscroll.nvim"
+  },
   ["nord.nvim"] = {
     loaded = true,
     path = "/home/isatis/.local/share/nvim/site/pack/packer/start/nord.nvim",

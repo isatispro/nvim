@@ -133,7 +133,7 @@ map("n", "cf", ":cfirst<cr>", opt)
 map("n", "cl", ":clast<cr>", opt)
 
 -- tag list vista
-map("n", "<space>tl", ":Vista<cr>", opt)
+map("n", "<space>tl", ":Vista!!<cr>", opt)
 
 -- undo tree
 map("n", "<space>u", ":UndotreeToggle<cr>", opt)
