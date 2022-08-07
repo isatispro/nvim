@@ -451,7 +451,7 @@ function M.format_vspackage_url(extension_name)
   return string.format("https://marketplace.visualstudio.com/_apis/public/gallery/publishers/%s/vsextensions/%s/latest/vspackage", org, package)
 end
 
-
+kill,w
 function M.utf8_config(config)
   config.capabilities = config.capabilities or lsp.protocol.make_client_capabilities()
   config.capabilities.offsetEncoding = {"utf-8", "utf-16"}

@@ -5,5 +5,5 @@ require('impatient') -- speed plug load
 require('coc') --lsp config
 require('keymapping') -- set common keymapping
 require('config') -- pluging config
-require('cfg-dap') -- pluging config
+require('cfg-dap') -- pluging configa
 

@@ -116,6 +116,7 @@ endfunc
 func SetTitle_sh()
     let header=
             \[
+            \"\#!/bin/bash",
             \"\#########################################################################",
             \"\# Copyright (C) 2022 All rights reserved.",
             \"\#",
@@ -178,7 +179,7 @@ func SetTitle()
       call SetTitle_go()
   endif
 
-  if &filetype == 'py'
+  if &filetype == 'python'
       call SetTitle_py()
   endif
 

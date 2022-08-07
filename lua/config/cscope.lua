@@ -3,7 +3,7 @@
 ------------------------------------
 
 if io.open("cscope.out", "r") ~= nil then
-    vim.opt.csprg = "/usr/bin/cscope"
+    vim.opt.csprg = "/opt/homebrew/bin/cscope"
 	-- use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
 	vim.opt.cscopetag = true
 	-- check cscope for definition of a symbol before checking ctags: set to 1

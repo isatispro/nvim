@@ -209,7 +209,7 @@ return require('packer').startup(function()
   use "nvim-telescope/telescope-dap.nvim"
   use "ahmedkhalf/project.nvim"
 
-  use 'hosxy/fcitx5.nvim'
+  -- use 'hosxy/fcitx5.nvim'
 
   use 'rmagatti/auto-session' -- 打开 vim 的时候，自动回复上一次打开的样子
   use 'mbbill/undotree' -- 显示编辑的历史记录
