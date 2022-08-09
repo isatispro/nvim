@@ -211,7 +211,7 @@ return require('packer').startup(function()
 
   -- use 'hosxy/fcitx5.nvim'
 
-  use 'rmagatti/auto-session' -- 打开 vim 的时候，自动回复上一次打开的样子
+  -- use 'rmagatti/auto-session' -- 打开 vim 的时候，自动回复上一次打开的样子
   use 'mbbill/undotree' -- 显示编辑的历史记录
 
   -- use 'vim-airline/vim-airline' -- 状态栏

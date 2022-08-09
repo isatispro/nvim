@@ -1,16 +1,16 @@
 # 主要的目录结构
 ```
-├── Ultisnips    ----------------------------------------- code snippets config
+├── Ultisnipsa    ----------------------------------------- code snippets config
 ├── coc-settings.json    --------------------------------- coc.nvim config
 ├── init.lua    ------------------------------------------ lua's init entry
 ├── lua   ------------------------------------------------ lua config directory
 │   ├── cfg-dap    --------------------------------------- dap config directory
 │   ├── coc    ------------------------------------------- coc.nvim config directory
 │   ├── config    ---------------------------------------- plugins config directory
-│   ├── keymapping.lua   --------------------------------- main keymapping config
-│   ├── lsp    ------------------------------------------- lsp config directory(unuse)
+│   ├── keymapping.lua   --------------------------------- main key mapping config
+│   ├── lsp    ------------------------------------------- lsp config directory(unused)
 │   ├── option.lua    ------------------------------------ vim's option
-│   ├── pluginKeys.lua    -------------------------------- part of plugins's keymapping
+│   ├── pluginKeys.lua    -------------------------------- part of plugins key mapping
 │   ├── plugins.lua   ------------------------------------ plugins list
 │   └── utils.lua    ------------------------------------- utils lua scripts(just copy from others)
 ```
@@ -22,4 +22,9 @@ telescope提供了可以查看所有按键映射的功能，使用以下可以�
 ,m
 ```
 
+# 自动补全
+
+## coc.nvim
+
+## neovim lsp
 
