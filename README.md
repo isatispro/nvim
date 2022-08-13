@@ -1,6 +1,20 @@
+
+<!-- vim-markdown-toc GFM -->
+
+* [主要的目录结构](#主要的目录结构)
+* [查看所有的按键映射](#查看所有的按键映射)
+* [自动补全](#自动补全)
+    * [coc.nvim](#cocnvim)
+    * [neovim lsp](#neovim-lsp)
+* [markdown](#markdown)
+    * [markdown 目录](#markdown-目录)
+    * [markdown 表格编辑 tab mode](#markdown-表格编辑-tab-mode)
+
+<!-- vim-markdown-toc -->
 # 主要的目录结构
 ```
-├── Ultisnipsa    ----------------------------------------- code snippets config
+├── Ultisnipsa    ---------------------------------------- code snippets config
+├── packer    -------------------------------------------- packer directory
 ├── coc-settings.json    --------------------------------- coc.nvim config
 ├── init.lua    ------------------------------------------ lua's init entry
 ├── lua   ------------------------------------------------ lua config directory
@@ -27,4 +41,16 @@ telescope提供了可以查看所有按键映射的功能，使用以下可以�
 ## coc.nvim
 
 ## neovim lsp
+
+# markdown
+
+## markdown 目录
+
+| command    | function         |
+|------------|------------------|
+| GenToc xxx | 生成markdown目录 |
+| UpdateToc  | 更新Toc目录      |
+
+## markdown 表格编辑 tab mode
+使用`tm`切换tab模式使用状态
 

@@ -1,5 +1,5 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('config')..'/packer/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
@@ -18,6 +18,7 @@ end
 
 -- Have packer use a popup window
 packer.init {
+  compile_path = fn.stdpath('cache')..'/plugins/packer_compiled.lua',
   display = {
     -- open_fn = function()
     --   return require("packer.util").float { border = "rounded" }
@@ -223,11 +224,11 @@ return require('packer').startup(function()
   use 'sbdchd/neoformat'
 
   use 'lambdalisue/suda.vim'
-  use {
-	'xeluxee/competitest.nvim',
-	requires = 'MunifTanjim/nui.nvim',
-	config = function() require'competitest'.setup() end
-  }
+ --  use {
+	-- 'xeluxee/competitest.nvim',
+	-- requires = 'MunifTanjim/nui.nvim',
+	-- config = function() require'competitest'.setup() end
+ --  }
 
   use 'Mofiqul/vscode.nvim'
 
@@ -242,6 +243,10 @@ return require('packer').startup(function()
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
+
+  use 'mzlogin/vim-markdown-toc' -- 生成markdown 目录
+
+  use 'dhruvasagar/vim-table-mode'-- markdown 表格编辑
   ------------------------------------
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
