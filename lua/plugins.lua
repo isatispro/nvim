@@ -247,6 +247,8 @@ return require('packer').startup(function()
   use 'mzlogin/vim-markdown-toc' -- 生成markdown 目录
 
   use 'dhruvasagar/vim-table-mode'-- markdown 表格编辑
+
+  use 'puremourning/vimspector' --debug plug
   ------------------------------------
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -35,12 +35,18 @@ telescope提供了可以查看所有按键映射的功能，使用以下可以�
 ```
 ,m
 ```
+使用频繁的快捷键
+| key mapping | function  |
+|-------------|-----------|
+| ,ff         | find file |
 
 # 自动补全
 
 ## coc.nvim
+可以使用vscode的插件，现在正在使用的补全插件
 
-## neovim lsp
+## neovim lsp 
+nevoim 自带的lsp功能，不成熟，现在没有使用
 
 # markdown
 
