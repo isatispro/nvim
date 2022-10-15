@@ -21,7 +21,7 @@ endfunc
 
 func CompilePyton()
         exec "w"
-        let compilecmd = "!python "
+        let compilecmd = "!python3 "
         let compileflag = ""
         exec compilecmd." % "compileflag
 endfunc

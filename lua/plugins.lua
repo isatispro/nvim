@@ -43,14 +43,14 @@ return require('packer').startup(function()
   }
 
   -- treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
-    use {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-  } -- enhance texetobject selection
-  use "romgrk/nvim-treesitter-context" -- show class/function at the top
+  -- use {
+  --   'nvim-treesitter/nvim-treesitter',
+  --   run = ':TSUpdate'
+  -- }
+  --   use {
+  --   "nvim-treesitter/nvim-treesitter-textobjects",
+  -- } -- enhance texetobject selection
+  -- use "romgrk/nvim-treesitter-context" -- show class/function at the top
   -- use "m-demare/hlargs.nvim"
   -- use "smiteshp/nvim-gps" -- statusline shows class structure
   use "andymass/vim-matchup"
@@ -250,6 +250,8 @@ return require('packer').startup(function()
   use 'dhruvasagar/vim-table-mode'-- markdown 表格编辑
 
   use 'puremourning/vimspector' --debug plug
+
+  use 'xdavidel/hexer.nvim'
   ------------------------------------
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
