@@ -1,6 +1,6 @@
 vim.g.coc_global_extensions = {
  'coc-actions',
- 'coc-symbol-line',
+ -- 'coc-symbol-line',
  'coc-clang-format-style-options',
  'coc-css',
  'coc-word',
@@ -45,4 +45,5 @@ vim.g.coc_global_extensions = {
 -- vim scripts load
 vim.cmd('source ~/.config/nvim/lua/coc/config.vim')
 -- vim.cmd('source ~/.config/nvim/lua/coc/ccls.vim')
+-- Some servers have issues with backup files, see #649.
 
