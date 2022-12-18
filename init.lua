@@ -6,4 +6,5 @@ require('coc') --lsp config
 require('keymapping') -- set common keymapping
 require('config') -- pluging config
 require('cfg-dap') -- pluging configa
+require('option_after') -- pluging configa
 
