@@ -253,6 +253,16 @@ return require('packer').startup(function()
   use 'puremourning/vimspector' --debug plug
 
   use 'xdavidel/hexer.nvim'
+
+  use {
+  'phaazon/hop.nvim',
+  branch = 'v2', -- optional but strongly recommended
+  -- config = function()
+  --   -- you can configure Hop the way you like here; see :h hop-config
+  --   require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  --   end
+  } -- 快捷移动
+
   ------------------------------------
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

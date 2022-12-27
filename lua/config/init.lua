@@ -32,6 +32,7 @@ require('config.cfg_gdb')
 require('config.vscode')
 require('config.cfg_neoscroll')
 require('config.cfg_suda')
+require('config.cfg_hop')
 
 --vim cfg
 vim.cmd('source ~/.config/nvim/lua/config/vista_cfg.vim')
