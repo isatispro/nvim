@@ -222,6 +222,7 @@ local fzf_config = {
         -- neovim terminal only supports `viu` block output
         ["png"]       = { "viu", "-b" },
         ["jpg"]       = { "ueberzug" },
+        ["jpeg"]       = { "ueberzug" },
       },
       -- if using `ueberzug` in the above extensions map
       -- set the default image scaler, possible scalers:

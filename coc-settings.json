@@ -229,5 +229,6 @@
 	"Lua.telemetry.enable": true,
 	"sumneko-lua.locale": "zh-cn",
 	"sumneko-lua.enableNvimLuaDev": true,
-	"Lua.completion.callSnippet": "Both"
+  "Lua.completion.callSnippet": "Both",
+  "snippets.ultisnips.pythonPrompt": false
 }
