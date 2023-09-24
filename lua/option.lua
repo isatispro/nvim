@@ -12,32 +12,32 @@ end
 
 
 -- completion symbols
-vim.lsp.protocol.CompletionItemKind = {
-    "   (Text) ",
-    "   (Method)",
-    "   (Function)",
-    "   (Constructor)",
-    " ﴲ  (Field)",
-    "[] (Variable)",
-    "   (Class)",
-    " ﰮ  (Interface)",
-    "   (Module)",
-    " 襁 (Property)",
-    "   (Unit)",
-    "   (Value)",
-    " 練 (Enum)",
-    "   (Keyword)",
-    "   (Snippet)",
-    "   (Color)",
-    "   (File)",
-    "   (Reference)",
-    "   (Folder)",
-    "   (EnumMember)",
-    " ﲀ  (Constant)",
-    " ﳤ  (Struct)",
-    "   (Event)",
-    "   (Operator)",
-    "   (TypeParameter)"
+vim.lsp.protocol.completionitemkind = {
+    "   (text) ",
+    "   (method)",
+    "   (function)",
+    "   (constructor)",
+    " ﴲ  (field)",
+    "[] (variable)",
+    "   (class)",
+    " ﰮ  (interface)",
+    "   (module)",
+    " 襁 (property)",
+    "   (unit)",
+    "   (value)",
+    " 練 (enum)",
+    "   (keyword)",
+    "   (snippet)",
+    "   (color)",
+    "   (file)",
+    "   (reference)",
+    "   (folder)",
+    "   (enummember)",
+    " ﲀ  (constant)",
+    " ﳤ  (struct)",
+    "   (event)",
+    "   (operator)",
+    "   (typeparameter)"
 }
 local function load_options()
 	local global_local = {
@@ -55,7 +55,7 @@ local function load_options()
 		sessionoptions = "curdir,help,tabpages,winsize",
 		clipboard = "unnamedplus",
 		wildignorecase = true,
-		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
+		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.ds_store,**/node_modules/**,**/bower_modules/**",
 		backup = false,
 		writebackup = false,
 		swapfile = false,
@@ -66,7 +66,7 @@ local function load_options()
 		-- spellfile = global.cache_dir .. "spell/en.uft-8.add",
 		history = 2000,
 		shada = "!,'300,<50,@100,s10,h",
-		backupskip = "/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim",
+		backupskip = "/tmp/*,$tmpdir/*,$tmp/*,$temp/*,*/shm/*,/private/var/*,.vault.vim",
 		smarttab = true,
 		shiftround = true,
 		timeout = true,
@@ -95,7 +95,7 @@ local function load_options()
 		completeopt = "menuone,noselect",
 		jumpoptions = "stack",
 		showmode = false,
-		shortmess = "aoOTIcF",
+		shortmess = "aooticf",
 		scrolloff = 2,
 		sidescrolloff = 5,
 		foldlevelstart = 99,
@@ -150,7 +150,7 @@ local function load_options()
 
     vim.opt.termguicolors = true
     vim.o.background = "dark" -- or "light" for light mode
-    vim.cmd([[colorscheme vscode]])
+    vim.cmd([[colorscheme oxocarbon]])
 	bind_option(bw_local)
 end
 

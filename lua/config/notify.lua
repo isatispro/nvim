@@ -33,6 +33,8 @@ notify.setup({
   -- Minimum width for notification windows
   minimum_width = 50,
 
+  background_colour = "#000000",
+
   -- Icons for the different levels
   icons = {
     ERROR = "",

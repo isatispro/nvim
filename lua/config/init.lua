@@ -7,7 +7,7 @@ require('config.comment')
 -- require('config.treesitter-context')
 require('config.telescope')
 -- Enable telescope fzf native
--- require('telescope').load_extension 'fzf'
+require('telescope').load_extension 'fzf'
 
 -- require('config.nvim-autopairs')
 require('config.comment')
@@ -18,7 +18,7 @@ require('config.symbols-outline')
 require('config.fidget')
 require('config.alpha')
 require('config.terminal')
-require('config.fzf')
+-- require('config.fzf')
 require('config.cscope')
 -- require('config.fcitx5_cfg')
 -- require('config.auto_session_cfg')
@@ -29,10 +29,11 @@ require('config.neoformat')
 -- require('config.competitest')
 --require('config.code_runner')
 require('config.cfg_gdb')
-require('config.vscode')
+-- require('config.vscode')
 require('config.cfg_neoscroll')
 require('config.cfg_suda')
 require('config.cfg_hop')
+require('config.cfg_tabnine')
 
 --vim cfg
 vim.cmd('source ~/.config/nvim/lua/config/vista_cfg.vim')

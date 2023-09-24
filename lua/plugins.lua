@@ -181,6 +181,8 @@ return require('packer').startup(function()
   -- use 'onsails/lspkind-nvim'
   -- use 'github/copilot.vim'
 
+  use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
+  
   use 'simrat39/rust-tools.nvim'
   use 'rust-lang/rust.vim'
   
@@ -188,7 +190,7 @@ return require('packer').startup(function()
   -- use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   -- use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
-  --fzf-lua
+  -- fzf-lua
   use { 'ibhagwan/fzf-lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
@@ -232,8 +234,9 @@ return require('packer').startup(function()
 	-- config = function() require'competitest'.setup() end
  --  }
 
-  use 'Mofiqul/vscode.nvim'
-
+  -- use 'Mofiqul/vscode.nvim'
+  use 'nyoom-engineering/oxocarbon.nvim'
+  
   use 'karb94/neoscroll.nvim'
 
   -- use {'kevinhwang91/nvim-bqf'}

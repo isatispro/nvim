@@ -28,7 +28,7 @@ local function footer()
 	-- local fortune = handle:read("*a")
 	-- handle:close()
 	-- return fortune
-	return "ravenxrz"
+	return "deaton yang"
 end
 
 dashboard.section.footer.val = footer()
