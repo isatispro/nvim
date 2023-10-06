@@ -39,7 +39,8 @@ return require('packer').startup(function()
   -- nvim-tree
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons'
+    requires = 'kyazdani42/nvim-web-devicons',
+    tag = "compat-nvim-0.7"
   }
 
   -- treesitter
@@ -98,7 +99,7 @@ return require('packer').startup(function()
   
   use "norcalli/nvim-colorizer.lua" -- show color
   use "folke/trouble.nvim"
-  use "j-hui/fidget.nvim" -- show lsp progress
+  use {"j-hui/fidget.nvim", tag = "legacy"} -- show lsp progress
   use "voldikss/vim-translator" -- show lsp progress
 
   -- Lua
@@ -199,6 +200,7 @@ return require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'
   use {
     'nvim-telescope/telescope.nvim',
+    tag = "0.1.3",
     requires = {{'nvim-lua/plenary.nvim'}}
   }
   
@@ -214,6 +216,11 @@ return require('packer').startup(function()
   use "nvim-telescope/telescope-dap.nvim"
   use "ahmedkhalf/project.nvim"
 
+  -- packer
+  use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  }
   -- use 'hosxy/fcitx5.nvim'
 
   -- use 'rmagatti/auto-session' -- 打开 vim 的时候，自动回复上一次打开的样子
@@ -222,7 +229,7 @@ return require('packer').startup(function()
   -- use 'vim-airline/vim-airline' -- 状态栏
   -- use 'vim-airline/vim-airline-themes' -- 状态栏的主题
 
-  use 'nvim-lualine/lualine.nvim' --底部状态栏
+  use {'nvim-lualine/lualine.nvim', tag = "compat-nvim-0.6"} --底部状态栏
 
   use 'goolord/alpha-nvim'
   use 'sbdchd/neoformat'
@@ -234,7 +241,7 @@ return require('packer').startup(function()
 	-- config = function() require'competitest'.setup() end
  --  }
 
-  -- use 'Mofiqul/vscode.nvim'
+  use 'Mofiqul/vscode.nvim'
   use 'nyoom-engineering/oxocarbon.nvim'
   
   use 'karb94/neoscroll.nvim'

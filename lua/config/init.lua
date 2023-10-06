@@ -1,8 +1,7 @@
 require('config.notify')
 require('config.bufferline_cfg')
-require('config.nvim-tree')
 require('config.comment')
-
+require('config.nvim-tree')
 -- require('config.nvim-treesitter')
 -- require('config.treesitter-context')
 require('config.telescope')
