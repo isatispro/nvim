@@ -10,35 +10,36 @@ local function bind_option(options)
 	end
 end
 
-
 -- completion symbols
 vim.lsp.protocol.completionitemkind = {
-    "   (text) ",
-    "   (method)",
-    "   (function)",
-    "   (constructor)",
-    " ﴲ  (field)",
-    "[] (variable)",
-    "   (class)",
-    " ﰮ  (interface)",
-    "   (module)",
-    " 襁 (property)",
-    "   (unit)",
-    "   (value)",
-    " 練 (enum)",
-    "   (keyword)",
-    "   (snippet)",
-    "   (color)",
-    "   (file)",
-    "   (reference)",
-    "   (folder)",
-    "   (enummember)",
-    " ﲀ  (constant)",
-    " ﳤ  (struct)",
-    "   (event)",
-    "   (operator)",
-    "   (typeparameter)"
+	"   (text) ",
+	"   (method)",
+	"   (function)",
+	" F (function)",
+	"   (constructor)",
+	" ﴲ  (field)",
+	"[] (variable)",
+	"   (class)",
+	" ﰮ  (interface)",
+	"   (module)",
+	" 襁 (property)",
+	"   (unit)",
+	"   (value)",
+	" 練 (enum)",
+	"   (keyword)",
+	"   (snippet)",
+	"   (color)",
+	"   (file)",
+	"   (reference)",
+	"   (folder)",
+	"   (enummember)",
+	" ﲀ  (constant)",
+	" ﳤ  (struct)",
+	"   (event)",
+	"   (operator)",
+	"   (typeparameter)",
 }
+
 local function load_options()
 	local global_local = {
 		termguicolors = true,
@@ -148,9 +149,9 @@ local function load_options()
 		vim.o[name] = value
 	end
 
-    vim.opt.termguicolors = true
-    vim.o.background = "dark" -- or "light" for light mode
-    vim.cmd([[colorscheme vscode]])
+	vim.opt.termguicolors = true
+	vim.o.background = "dark" -- or "light" for light mode
+	vim.cmd([[colorscheme visual_studio_code]])
 	bind_option(bw_local)
 end
 

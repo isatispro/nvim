@@ -30,7 +30,8 @@ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 
 " Executive used when opening vista sidebar without specifying it.
 " See all the avaliable executives via `:echo g:vista#executives`.
-let g:vista_default_executive = 'coc'
+" let g:vista_default_executive = 'coc'
+let g:vista_default_executive = 'nvim_lsp'
 
 " Set the executive for some filetypes explicitly. Use the explicit executive
 " instead of the default one for these filetypes when using `:Vista` without
@@ -57,6 +58,11 @@ let g:vista#renderer#enable_icon = 1
 
 " The default icons can't be suitable for all the filetypes, you can extend it as you wish.
 let g:vista#renderer#icons = {
-\   "function": "\uf794",
-\   "variable": "\uf71b",
+\   "function": "\uf09a",
+\   "variable": "\uf1b2",
+\   "array": "\uf1b3",
+\   "string": "\uf06c",
+\   "boolean": "\uf02e",
+\   "object": "\uf2d9",
+\   "number": "\uf11b",
 \  }

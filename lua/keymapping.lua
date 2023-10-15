@@ -5,8 +5,8 @@ vim.g.maplocalleader = ","
 -- 本地变量
 local map = vim.api.nvim_set_keymap
 local opt = {
-    noremap = true,
-    silent = true
+	noremap = true,
+	silent = true,
 }
 
 map("n", "<C-k>", "4k", opt)
@@ -22,13 +22,12 @@ map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
 -- magic search
-map("n", "/", "/\\v", { noremap = true , silent = false})
-map("v", "/", "/\\v", { noremap = true , silent = false})
+map("n", "/", "/\\v", { noremap = true, silent = false })
+map("v", "/", "/\\v", { noremap = true, silent = false })
 
-
-map('n', ';', ':', opt)
-map('n', '<leader>w', ':w<CR>', opt)
-map('n', '<leader>q', ':q<CR>', opt)
+map("n", ";", ":", opt)
+map("n", "<leader>w", ":w<CR>", opt)
+map("n", "<leader>q", ":q<CR>", opt)
 ------------------------------------------------------------------
 -- windows 分屏快捷键
 map("n", "sv", ":vsp<CR>", opt)
@@ -48,7 +47,7 @@ map("n", "sk", ":resize -10<CR>", opt)
 --------------------------------------------------------------------
 -- 插件快捷键
 -- nvimTree
-map('n', '<leader>nn', ':NvimTreeToggle<CR>', opt)
+map("n", "<leader>nn", ":NvimTreeToggle<CR>", opt)
 
 -- symbols-outline
 -- map('n', '<leader>tl', ':SymbolsOutline<CR>', opt)
@@ -81,6 +80,7 @@ map("n", "<leader>in", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>", opt)
 -- map("n", "<leader>fh", ":FzfLua help_tags<CR>", opt)
 map("n", "<leader>ff", ":Telescope find_files<CR>", opt)
 map("n", "<leader>fg", ":Telescope live_grep<CR>", opt)
+map("n", "<leader>fc", ":Telescope colorscheme<CR>", opt)
 map("n", "<leader>b", ":Telescope buffers<CR>", opt)
 map("n", "<leader>fa", ":telescope tags<CR>", opt)
 -- map("n", "<leader>fb", ":telescope btags<CR>", opt)
@@ -90,11 +90,11 @@ map("n", "<space>f", ":Telescope file_browser<CR>", opt)
 -- map("n", "<leader>ta", ":FzfLua lsp_workspace_symbols<CR>", opt)
 -- map("n", "<leader>tb", ":FzfLua lsp_document_symbols<CR>", opt)
 
--- 使用ctrl + 方向健调整当前窗口大小 
-map("n","<C-k>", ":res +5<CR>", opt)
-map("n","<C-j>", ":res -5<CR>",opt)
-map("n","<C-h>", ":vertical resize-5<CR>",opt)
-map("n","<C-l>", ":vertical resize+5<CR>",opt)
+-- 使用ctrl + 方向健调整当前窗口大小
+map("n", "<C-k>", ":res +5<CR>", opt)
+map("n", "<C-j>", ":res -5<CR>", opt)
+map("n", "<C-h>", ":vertical resize-5<CR>", opt)
+map("n", "<C-l>", ":vertical resize+5<CR>", opt)
 
 -- cscope
 
@@ -122,8 +122,7 @@ map("n", "cf", ":CocList files<cr>", opt)
 map("n", "cg", ":CocList grep<cr>", opt)
 map("n", "cl", ":CocList lines<cr>", opt)
 map("n", "ct", ":CocList tags<cr>", opt)
-map('n', '<leader>tl', ':CocList outline<CR>', opt)
-
+map("n", "<leader>tl", ":CocList outline<CR>", opt)
 
 -- cscope
 map("n", "<space>cs", [[<cmd>lua cscope_search('s', vim.fn.expand("<cword>"))<cr>]], opt)
@@ -147,18 +146,18 @@ map("n", "<space>tl", ":Vista!!<cr>", opt)
 -- undo tree
 map("n", "<space>u", ":UndotreeToggle<cr>", opt)
 
-map('n', '<leader>r', ':RunCode<CR>', opt)
-map('n', '<leader>rf', ':RunFile<CR>', opt)
-map('n', '<leader>rft', ':RunFile tab<CR>', opt)
-map('n', '<leader>rp', ':RunProject<CR>', opt)
-map('n', '<leader>rc', ':RunClose<CR>', opt)
-map('n', '<leader>crf', ':CRFiletype<CR>', opt)
-map('n', '<leader>crp', ':CRProjects<CR>', opt)
+map("n", "<leader>r", ":RunCode<CR>", opt)
+map("n", "<leader>rf", ":RunFile<CR>", opt)
+map("n", "<leader>rft", ":RunFile tab<CR>", opt)
+map("n", "<leader>rp", ":RunProject<CR>", opt)
+map("n", "<leader>rc", ":RunClose<CR>", opt)
+map("n", "<leader>crf", ":CRFiletype<CR>", opt)
+map("n", "<leader>crp", ":CRProjects<CR>", opt)
 
 -- markdown preview
-map('n', '<space>mp', ':MarkdownPreviewToggle<CR>', opt)
-map('n', 'tm', ':TableModeToggle<CR>', opt)
--- -- ToggleTerm  
+map("n", "<space>mp", ":MarkdownPreviewToggle<CR>", opt)
+map("n", "tm", ":TableModeToggle<CR>", opt)
+-- -- ToggleTerm
 -- function _G.set_terminal_keymaps()
 --   map("t", "<esc>", "<C-\\><C-n>")
 --   map("t", "<A-h>", "<c-\\><c-n><c-w>h") map("t", "<A-j>", "<c-\\><c-n><c-w>j")

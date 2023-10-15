@@ -4,7 +4,10 @@ if not status_ok then
 end
 
 -- require("lsp.config")
-require("lsp.lsp-installer")
-require("lsp.handlers").setup()
-require("lsp.cmp")
+-- require("lsp.lsp-installer")
 -- require("lsp.coq")
+
+require("lsp.mason")
+require("lsp.handlers").setup()
+require("lsp.null-ls")
+require("lsp.cmp_cfg")
