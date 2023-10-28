@@ -59,9 +59,9 @@ map("n", "[b", ":BufferLineCycleNext<CR>", opt)
 -- no highlight
 map("n", "<leader>/", ":nohl<cr>", opt)
 
--- translate 代码格式化
-map("n", "<leader>ts", ":Translate<cr>", opt)
-map("v", "<leader>ts", ":TranslateV<cr>", opt)
+-- translate 代码翻译
+map("n", "<leader>ts", ":TranslateW<cr>", opt)
+map("v", "<leader>ts", ":TranslateW<cr>", opt)
 
 -- no highlight
 map("n", "<leader>/", ":nohl<cr>", opt)
@@ -87,6 +87,8 @@ map("n", "<leader>fa", ":telescope tags<CR>", opt)
 map("n", "<leader>fh", ":telescope help_tags<CR>", opt)
 map("n", "<leader>m", ":Telescope keymaps<CR>", opt)
 map("n", "<space>f", ":Telescope file_browser<CR>", opt)
+map("n", "<leader>fs", ":Telescope lsp_dynamic_workspace_symbols<CR>", opt)
+map("n", "<leader>fb", ":Telescope lsp_document_symbols<CR>", opt)
 -- map("n", "<leader>ta", ":FzfLua lsp_workspace_symbols<CR>", opt)
 -- map("n", "<leader>tb", ":FzfLua lsp_document_symbols<CR>", opt)
 
